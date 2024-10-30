@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Geologica', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      'slnt' 0,
+      'CRSV' 0,
+      'SHRP' 0;
+  }
+  @layer base {
+    html {
+      @apply text-text-color;
+    }
+  }
+}
+
+@layer components {
+  .wrapper {
+    display: grid;
+    grid-template-columns:
+      1fr
+      min(1280px, 100%)
+      1fr;
+  }
+
+  .wrapper > * {
+    grid-column: 2;
+    margin: 0 60px;
+  }
+
+  .full-bleed {
+    width: 100%;
+    margin: 0;
+    grid-column: 1 / 4;
+  }
+
+  .nav-pos {
+    position: fixed;
+    top: 64px; /* Сдвигаем элемент на 50% от высоты окна */
+    left: 50%; /* Сдвигаем элемент на 50% от ширины окна */
+    transform: translate(-50%, -50%);
+    max-width: 1280px;
+  }
+}
