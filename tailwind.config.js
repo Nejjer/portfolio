@@ -11,6 +11,7 @@ export default {
         blue: '#39BEF4',
         'white-blue': '#75CEF6',
         'dark-blue': '#0772B4',
+        grey1: '#EBF9FF',
       },
       textColor: {
         DEFAULT: '#32344F',
