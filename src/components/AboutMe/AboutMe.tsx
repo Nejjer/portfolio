@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 export const AboutMe: FC = () => {
   return (
-    <section className={'mt-32 flex w-full gap-10'}>
+    <section className={'mb-32 mt-32 flex w-full gap-10'}>
       <div className={'bg-dark-blue h-[400px] w-[360px]'}></div>
       <div className={'flex flex-grow flex-col'}>
         <p className={'text-xl'}>Меня зовут</p>
