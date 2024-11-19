@@ -41,7 +41,8 @@
   }
 
   .nav-pos {
-    position: fixed;
+    width: 94vw;
+    position: absolute;
     top: 64px; /* Сдвигаем элемент на 50% от высоты окна */
     left: 50%; /* Сдвигаем элемент на 50% от ширины окна */
     transform: translate(-50%, -50%);

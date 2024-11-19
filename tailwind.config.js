@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/components/**/*.tsx', 'index.html', './src/*.tsx'],
+  content: [
+    './src/components/**/*.tsx',
+    'index.html',
+    './src/*.tsx',
+    './src/pages/**/*.tsx',
+  ],
   theme: {
     extend: {
       gridTemplateRows: {

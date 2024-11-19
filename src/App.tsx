@@ -1,17 +1,14 @@
-import { Navigation } from './components/Navigation';
-import { Header } from './components/Header';
-import { AboutMe } from './components/AboutMe';
-import { Portfolio } from './components/Portfolio';
-import { Contacts } from './components/Contacts';
+import { Route, Routes } from 'react-router-dom';
+import { Main } from './pages/Main';
+import { Portfolio } from './pages/Portfolio';
 
 function App() {
   return (
     <div className='wrapper'>
-      <Navigation />
-      <Header />
-      <AboutMe />
-      <Portfolio />
-      <Contacts />
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/portfolio' element={<Portfolio />} />
+      </Routes>
     </div>
   );
 }
