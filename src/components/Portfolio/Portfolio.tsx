@@ -4,7 +4,7 @@ import { PortfolioItem } from '../PortfolioItem';
 
 export const Portfolio: FC = () => {
   return (
-    <div>
+    <section className={'mb-11'}>
       <div className={'mb-11 flex gap-10'}>
         <h2 className={'text-5xl font-bold'}>Портфолио</h2>
         <Button>Подробнее</Button>
@@ -15,6 +15,6 @@ export const Portfolio: FC = () => {
         <PortfolioItem title={'Прочие достижения'} />
         <PortfolioItem title={'Прочие достижения'} />
       </ul>
-    </div>
+    </section>
   );
 };
