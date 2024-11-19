@@ -5,7 +5,7 @@ import { AboutMe } from './pages/AboutMe';
 
 function App() {
   return (
-    <div className='wrapper'>
+    <div className='wrapper '>
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/portfolio' element={<Portfolio />} />

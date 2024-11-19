@@ -10,7 +10,9 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
 
   return (
     <div
-      className={'flex items-center justify-between bg-white px-8 ' + className}
+      className={
+        'hidden items-center justify-between bg-white px-8 md:flex ' + className
+      }
     >
       <Link to={'/'}>
         <h3 className={'text-2xl font-bold'}>Заголовок</h3>

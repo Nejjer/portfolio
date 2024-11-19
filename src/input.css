@@ -29,9 +29,13 @@
       1fr;
   }
 
+  .wrapper > *:first-child {
+    padding: 0;
+  }
+
   .wrapper > * {
     grid-column: 2;
-    margin: 0 60px;
+    padding: 0 60px;
   }
 
   .full-bleed {
