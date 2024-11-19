@@ -12,16 +12,20 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
     <div
       className={'flex items-center justify-between bg-white px-8 ' + className}
     >
-      <h3 className={'text-2xl font-bold'}>Заголовок</h3>
+      <Link to={'/'}>
+        <h3 className={'text-2xl font-bold'}>Заголовок</h3>
+      </Link>
       <nav>
         <ul className={'flex justify-between gap-4'}>
-          <Link to={'/'} className={'cursor-pointer p-4'}>
+          <Link to={'/aboutme'} className={'cursor-pointer p-4'}>
             Обо мне
           </Link>
           <Link to={'/portfolio'} className={'cursor-pointer p-4'}>
             Портфолио
           </Link>
-          <li className={'cursor-pointer p-4'}>Контакты</li>
+          <Link to={'contacts'} className={'cursor-pointer p-4'}>
+            Контакты
+          </Link>
         </ul>
       </nav>
     </div>
