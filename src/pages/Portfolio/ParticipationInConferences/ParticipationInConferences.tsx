@@ -40,14 +40,14 @@ const conferenceItems: IConference[] = [
 
 export const ParticipationInConferences: FC = () => {
   return (
-    <section className={'relative h-[432px]'}>
+    <section className={'relative flex h-[552px] flex-col'}>
       <div className={'p-4'}>
         <Navigation />
       </div>
       <h4 className={'mb-10 mt-9 text-3xl font-bold'}>
         Участие в конференциях
       </h4>
-      <ul className={'grid columns-1 gap-0.5 bg-blue'}>
+      <ul className={'grid columns-1 gap-0.5 overflow-auto bg-blue'}>
         {conferenceItems.map(({ title, info }) => (
           <ConferenceItem title={title} info={info} />
         ))}

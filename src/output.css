@@ -660,6 +660,14 @@ html {
   margin-bottom: 2.5rem;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .block {
   display: block;
 }
@@ -698,6 +706,14 @@ html {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[351px\] {
+  height: 351px;
+}
+
+.h-\[552px\] {
+  height: 552px;
 }
 
 .w-6 {
@@ -795,6 +811,10 @@ html {
 
 .justify-self-end {
   justify-self: end;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .border {
