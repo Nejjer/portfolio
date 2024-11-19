@@ -1,15 +1,17 @@
 import { FC } from 'react';
+import { Navigation } from '../Navigation';
 
 export const Header: FC = () => {
   return (
     <div
       className={
-        'grid-rows-headerBlocks full-bleed grid h-[560px] w-full grid-cols-4'
+        'full-bleed relative grid h-[560px] w-full grid-cols-4 grid-rows-headerBlocks'
       }
     >
+      <Navigation isAbsolutePos={true} />
       <div
         className={
-          'bg-blue col-span-2 row-span-2 flex items-end justify-end p-10'
+          'col-span-2 row-span-2 flex items-end justify-end bg-blue p-10'
         }
       >
         <div>
@@ -19,7 +21,7 @@ export const Header: FC = () => {
       </div>
       <div className={'bg-white-blue'}></div>
       <div className={'bg-blue'}></div>
-      <div className={'bg-dark-blue col-span-2'}></div>
+      <div className={'col-span-2 bg-dark-blue'}></div>
     </div>
   );
 };
