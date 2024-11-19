@@ -12,7 +12,7 @@ export const Portfolio: FC = () => {
         <h2 className={'text-5xl font-bold'}>Портфолио</h2>
         <Button onClick={() => navigation('aboutme')}>Подробнее</Button>
       </div>
-      <ul className={'flex gap-10'}>
+      <ul className={'flex gap-10 overflow-x-auto'}>
         <PortfolioItem title={'N научных конференций'} />
         <PortfolioItem title={'Участник X конференций'} />
         <PortfolioItem title={'Прочие достижения'} />
