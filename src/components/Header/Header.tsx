@@ -26,9 +26,10 @@ export const Header: FC = () => {
       </section>
       <section
         className={
-          'flex h-[300px] flex-col items-end justify-end px-6 md:hidden'
+          'header-mobile-gradient flex h-[300px] flex-col items-end justify-end px-6 pb-10 md:hidden'
         }
       >
+        <Navigation isAbsolutePos={true} />
         <div>
           <h1 className={'mb-2 text-4xl font-bold'}>Заголовок</h1>
           <p className={'text-right text-2xl'}>Слоган</p>

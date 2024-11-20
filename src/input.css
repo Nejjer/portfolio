@@ -18,10 +18,19 @@
       @apply text-text-color;
     }
   }
+
+  @media (max-width: 768px) {
+    .wrapper > * {
+      grid-column: 2;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
 }
 
 @layer components {
   .wrapper {
+    overflow: hidden;
     display: grid;
     grid-template-columns:
       1fr
@@ -51,5 +60,14 @@
     left: 50%; /* Сдвигаем элемент на 50% от ширины окна */
     transform: translate(-50%, -50%);
     max-width: 1280px;
+  }
+
+  .header-mobile-gradient {
+    background: linear-gradient(
+      180deg,
+      #39bef4 31.94%,
+      rgba(57, 190, 244, 0.932331) 52.43%,
+      rgba(57, 190, 244, 0) 95.33%
+    );
   }
 }
