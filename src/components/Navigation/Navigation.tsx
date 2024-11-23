@@ -38,7 +38,7 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
         </nav>
       </div>
       <div
-        className={`bg-white-transparent absolute right-5 top-5 flex ${active ? 'h-auto' : 'h-10'} ${active ? 'w-36' : 'w-10'} cursor-pointer items-center justify-center rounded-[20px] transition-all md:hidden`}
+        className={`bg-white-transparent fixed right-5 top-5 flex ${active ? 'h-auto' : 'h-10'} ${active ? 'w-36' : 'w-10'} cursor-pointer items-center justify-center rounded-[20px] transition-all md:hidden`}
       >
         <Burger
           onClick={(e) => {
