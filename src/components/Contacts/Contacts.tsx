@@ -1,12 +1,17 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Input } from '../Input';
 import { Textarea } from '../Textarea';
 import { Button } from '../Button';
 import Phone from './Phone.svg?react';
 import Telegram from './Telegram.svg?react';
 import Mail from './Mail.svg?react';
+import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
 
 export const Contacts: FC = () => {
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
+
   const contact = (text: string) => (
     <li className={'mb-6 flex w-full items-center gap-4'}>
       <div className={'h-6 w-6 bg-blue'}></div> {text}
@@ -16,7 +21,7 @@ export const Contacts: FC = () => {
   return (
     <section
       className={
-        'bg-ultra-white-blue mb-0 flex flex-col gap-10 md:mb-11 md:flex-row md:bg-none'
+        'bg-ultra-white-blue mb-0 flex flex-col gap-10 md:mb-11 md:mt-16 md:flex-row md:bg-transparent'
       }
     >
       <div
@@ -36,14 +41,11 @@ export const Contacts: FC = () => {
       <div className={'hidden h-full w-[360px] flex-1 md:block'}>
         <h4 className={'mb-8 text-3xl font-bold '}>Прочие контакты</h4>
         <ul className={'bg-grey1 p-8'}>
-          {contact('Контакт 1')}
-          {contact('Контакт 1')}
-          {contact('Контакт 1')}
-          {contact('Контакт 1')}
+          {mainStore.portfolio?.contacts.map((cntc) => contact(cntc.value))}
         </ul>
       </div>
 
-      <div>
+      <div className={'md:hidden'}>
         <h6 className={'font-bold text-dark-blue'}>
           Малыгина Наталья Владимировна
         </h6>

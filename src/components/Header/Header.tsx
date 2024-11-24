@@ -1,7 +1,13 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Navigation } from '../Navigation';
+import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
+import { observer } from 'mobx-react';
 
-export const Header: FC = () => {
+const Header: FC = () => {
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
+
   return (
     <>
       <section
@@ -16,8 +22,12 @@ export const Header: FC = () => {
           }
         >
           <div>
-            <h1 className={'mb-2 text-6xl font-bold'}>Заголовок</h1>
-            <p className={'text-right text-3xl'}>Слоган</p>
+            <h1 className={'mb-2 text-6xl font-bold'}>
+              {mainStore.portfolio?.name}
+            </h1>
+            <p className={'text-right text-3xl'}>
+              {mainStore.portfolio?.slogan}
+            </p>
           </div>
         </div>
         <div className={'bg-white-blue'}></div>
@@ -31,10 +41,15 @@ export const Header: FC = () => {
       >
         <Navigation isAbsolutePos={true} />
         <div>
-          <h1 className={'mb-2 text-4xl font-bold'}>Заголовок</h1>
-          <p className={'text-right text-2xl'}>Слоган</p>
+          <h1 className={'mb-2 text-4xl font-bold'}>
+            {mainStore.portfolio?.name}
+          </h1>
+          <p className={'text-right text-2xl'}>{mainStore.portfolio?.slogan}</p>
         </div>
       </section>
     </>
   );
 };
+
+const connected = observer(Header);
+export { connected as Header };
