@@ -630,6 +630,10 @@ html {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
@@ -698,6 +702,10 @@ html {
   margin-bottom: 2rem;
 }
 
+.mr-24 {
+  margin-right: 6rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -720,6 +728,14 @@ html {
 
 .mt-9 {
   margin-top: 2.25rem;
+}
+
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .block {
@@ -790,6 +806,14 @@ html {
   height: 100%;
 }
 
+.h-\[180px\] {
+  height: 180px;
+}
+
+.w-0\.5 {
+  width: 0.125rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -812,6 +836,10 @@ html {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[150px\] {
+  width: 150px;
 }
 
 .flex-1 {
@@ -845,6 +873,14 @@ html {
 
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-work-exp {
+  grid-template-columns: 200px 1fr;
+}
+
+.grid-cols-work-exp-mobile {
+  grid-template-columns: 100px 1fr;
 }
 
 .grid-rows-7 {
@@ -913,6 +949,10 @@ html {
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-\[10px\] {
@@ -996,6 +1036,10 @@ html {
   padding: 1rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -1023,6 +1067,11 @@ html {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pb-10 {
@@ -1119,6 +1168,10 @@ html {
     margin-top: 0px;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .md\:mt-32 {
     margin-top: 8rem;
   }
@@ -1127,12 +1180,12 @@ html {
     margin-top: 1rem;
   }
 
-  .md\:mt-10 {
-    margin-top: 2.5rem;
+  .md\:mt-24 {
+    margin-top: 6rem;
   }
 
-  .md\:mt-16 {
-    margin-top: 4rem;
+  .md\:mr-24 {
+    margin-right: 6rem;
   }
 
   .md\:block {
@@ -1155,8 +1208,16 @@ html {
     height: 400px;
   }
 
+  .md\:w-\[360px\] {
+    width: 360px;
+  }
+
   .md\:basis-\[760px\] {
     flex-basis: 760px;
+  }
+
+  .md\:grid-cols-work-exp {
+    grid-template-columns: 200px 1fr;
   }
 
   .md\:flex-row {
@@ -1175,8 +1236,13 @@ html {
     background-color: transparent;
   }
 
-  .md\:bg-none {
-    background-image: none;
+  .md\:bg-grey1 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(235 249 255 / var(--tw-bg-opacity));
+  }
+
+  .md\:p-5 {
+    padding: 1.25rem;
   }
 
   .md\:text-2xl {

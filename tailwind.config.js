@@ -11,6 +11,10 @@ export default {
       gridTemplateRows: {
         headerBlocks: '280px 280px',
       },
+      gridTemplateColumns: {
+        'work-exp': '200px 1fr',
+        'work-exp-mobile': '100px 1fr',
+      },
       colors: {
         'text-color': '#32344F',
         blue: '#39BEF4',
