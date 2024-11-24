@@ -1127,6 +1127,14 @@ html {
     margin-top: 1rem;
   }
 
+  .md\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1161,6 +1169,10 @@ html {
 
   .md\:justify-self-end {
     justify-self: end;
+  }
+
+  .md\:bg-transparent {
+    background-color: transparent;
   }
 
   .md\:bg-none {
