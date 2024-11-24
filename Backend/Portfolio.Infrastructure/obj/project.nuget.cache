@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "7ze1Vj1xEoo=",
+  "success": true,
+  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\root\\devofy\\code\\portfolio\\Backend\\Portfolio.Infrastructure\\Portfolio.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\temat\\.nuget\\packages\\ftsoft.common\\1.0.2\\ftsoft.common.1.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\ftsoft.domain\\1.0.2\\ftsoft.domain.1.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\ftsoft.storage.entityframework\\1.0.2\\ftsoft.storage.entityframework.1.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.10\\microsoft.entityframeworkcore.8.0.10.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.10\\microsoft.entityframeworkcore.abstractions.8.0.10.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.10\\microsoft.entityframeworkcore.analyzers.8.0.10.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.10\\microsoft.entityframeworkcore.relational.8.0.10.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.1\\microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.logging\\8.0.1\\microsoft.extensions.logging.8.0.1.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\npgsql\\8.0.5\\npgsql.8.0.5.nupkg.sha512",
+    "C:\\Users\\temat\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.10\\npgsql.entityframeworkcore.postgresql.8.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
