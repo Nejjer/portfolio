@@ -6,8 +6,9 @@ import Phone from './Phone.svg?react';
 import Telegram from './Telegram.svg?react';
 import Mail from './Mail.svg?react';
 import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
+import { observer } from 'mobx-react';
 
-export const Contacts: FC = () => {
+const Contacts: FC = () => {
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
@@ -21,7 +22,7 @@ export const Contacts: FC = () => {
   return (
     <section
       className={
-        'bg-ultra-white-blue mb-0 flex flex-col gap-10 md:mb-11 md:mt-16 md:flex-row md:bg-transparent'
+        'mb-0 flex flex-col gap-10 bg-ultra-white-blue md:mb-11 md:mt-16 md:flex-row md:bg-transparent'
       }
     >
       <div
@@ -58,3 +59,6 @@ export const Contacts: FC = () => {
     </section>
   );
 };
+
+const connected = observer(Contacts);
+export { connected as Contacts };
