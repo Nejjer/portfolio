@@ -1,6 +1,8 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { FC, useContext, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Card } from '@gravity-ui/uikit';
+import { observer } from 'mobx-react';
+import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
 
 const Item: FC<{ name: string; path: string }> = ({ name, path }) => {
   return (
@@ -19,11 +21,21 @@ const Item: FC<{ name: string; path: string }> = ({ name, path }) => {
 
 const sections = [
   { path: 'about', name: 'Обо мне' },
-  { path: 'presentation', name: 'Презентацит' },
+  { path: 'presentation', name: 'Презентации' },
   { path: 'conferences', name: 'Конференции' },
 ];
 
-export const Portfolio: FC = () => {
+const Portfolio: FC = () => {
+  const { id } = useParams();
+
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
+
+  useEffect(() => {
+    mainStore.setActivePortfolio(parseInt(id!));
+  }, []);
+
   return (
     <div className={'flex gap-10 p-10'}>
       {sections.map((section) => (
@@ -32,3 +44,6 @@ export const Portfolio: FC = () => {
     </div>
   );
 };
+
+const connected = observer(Portfolio);
+export { connected as Portfolio };

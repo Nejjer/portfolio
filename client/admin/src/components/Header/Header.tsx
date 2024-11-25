@@ -10,7 +10,7 @@ const Header: FC = () => {
   return (
     <div
       className={
-        'bg-g-color-base-float flex h-16 w-full items-center justify-start p-4 text-xl'
+        'flex h-16 w-full items-center justify-start bg-g-color-base-float p-4 text-xl'
       }
     >
       {mainStore.getActivePortfolio()?.name}

@@ -13,7 +13,7 @@ export class MainStore {
   public presentations: IPresentation[] = [];
   public workExps: IWorkExperience[] = [];
   public publications: IPublication[] = [];
-  private idOfActivePortfolio: number = 0;
+  private idOfActivePortfolio: number = -1;
   public isLoading = false;
 
   constructor() {
