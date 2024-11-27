@@ -4,6 +4,9 @@ import { PortfolioList } from './pages/PortfolioList';
 import { Container } from '@gravity-ui/uikit';
 import { Portfolio } from './pages/Portfolio';
 import { Header } from './components/Header';
+import { configure, Lang } from '@gravity-ui/dynamic-forms';
+
+configure({ lang: Lang.Ru });
 
 function App() {
   return (
