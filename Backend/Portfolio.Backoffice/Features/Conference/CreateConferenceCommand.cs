@@ -16,7 +16,7 @@ public sealed class CreateConferenceCommandHandler(IConferenceRepository confere
 {
     public override async Task<Result> Handle(CreateConferenceCommand request, CancellationToken cancellationToken)
     {
-        var conference = new Domain.Models.Conference(request.Data.Name, request.Data.Date, request.Data.PortfolioId);
+        var conference = new Domain.Models.Conference(request.Data.Name, request.Data.Date, request.Data.PortfolioId, request.Data.Image);
         await conferenceRepository.AddAsync(conference, cancellationToken);
         await conferenceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         return Successful();

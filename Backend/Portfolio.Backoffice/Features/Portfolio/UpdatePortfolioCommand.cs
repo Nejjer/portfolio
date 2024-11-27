@@ -26,7 +26,7 @@ public sealed class UpdatePortfolioCommandHandler(IPortfolioRepository portfolio
         }
 
         var contacts = request.Data.Contacts.Select(x => new PortfolioContact(x.Name, x.Value)).ToList();
-        portfolio.Update(request.Data.Name, request.Data.ShortInfo, request.Data.Slogan, contacts);
+        portfolio.Update(request.Data.Name, request.Data.ShortInfo, request.Data.Slogan, contacts, request.Data.Credits);
         await portfolioRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         return Successful();
     }

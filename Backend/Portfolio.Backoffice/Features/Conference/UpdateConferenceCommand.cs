@@ -25,7 +25,7 @@ namespace Portfolio.Backoffice.Features.Conference
                 return Error(NotFoundError.Instance);
             }
 
-            conference.Update(request.Data.Name, request.Data.Date, request.Data.PortfolioId);
+            conference.Update(request.Data.Name, request.Data.Date, request.Data.PortfolioId, request.Data.Image);
             await conferenceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return Successful();
         }
