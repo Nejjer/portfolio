@@ -36,10 +36,8 @@ namespace Portfolio.Backoffice.Features.WorkExperience
                 {
                     Id = x.Id,
                     PortfolioId = x.PortfolioId,
-                    Company = x.Company,
-                    EndDate = x.EndDate,
+                    Description = x.Description,
                     StartDate = x.StartDate,
-                    Position = x.Position
                 }).ToList();
             return Successful(result);
         }

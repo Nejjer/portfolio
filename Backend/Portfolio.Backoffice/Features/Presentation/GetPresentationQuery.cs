@@ -38,8 +38,6 @@ public sealed class GetPortfolioPresentationsQueryHandler(
             {
                 Id = presentation.Id,
                 Title = presentation.Title,
-                Event = presentation.Event,
-                PresentationDate = presentation.PresentationDate,
                 Description = presentation.Description,
                 Link = presentation.Link,
                 PortfolioId = presentation.PortfolioId

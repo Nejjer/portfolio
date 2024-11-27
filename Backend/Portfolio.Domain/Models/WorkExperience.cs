@@ -6,28 +6,21 @@ public class WorkExperience : BaseModel
     {
     }
 
-    public WorkExperience(string company, string endDate, string startDate,
-        string position, long portfolioId)
+    public WorkExperience(string description, string startDate, long portfolioId)
     {
         PortfolioId = portfolioId;
-        Company = company;
-        EndDate = endDate;
+        Description = description;
         StartDate = startDate;
-        Position = position;
     }
 
     public long PortfolioId { get; private set; }
-    public string Company { get; private set; }
-    public string EndDate { get; private set; }
+    public string Description { get; private set; }
     public string StartDate { get; private set; }
-    public string Position { get; private set; }
 
-    public void Update(string company, string position, string startDate, string endDate, long portfolioId)
+    public void Update(string company, string startDate, long portfolioId)
     {
         PortfolioId = portfolioId;
-        Company = company;
-        EndDate = endDate;
+        Description = company;
         StartDate = startDate;
-        Position = position;
     }
 }

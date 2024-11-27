@@ -26,8 +26,7 @@ namespace Portfolio.Backoffice.Features.WorkExperience
                 return Error(NotFoundError.Instance);
             }
 
-            workExperience.Update(request.Data.Company, request.Data.Position, request.Data.StartDate,
-                request.Data.EndDate, request.Data.PortfolioId);
+            workExperience.Update(request.Data.Description, request.Data.StartDate, request.Data.PortfolioId);
             await workExperienceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return Successful();
         }

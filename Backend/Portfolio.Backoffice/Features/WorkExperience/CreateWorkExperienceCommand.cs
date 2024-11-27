@@ -17,9 +17,8 @@ namespace Portfolio.Backoffice.Features.WorkExperience
         public override async Task<Result> Handle(CreateWorkExperienceCommand request,
             CancellationToken cancellationToken)
         {
-            var workExperience = new Domain.Models.WorkExperience(request.Data.Company, request.Data.Position,
-                request.Data.StartDate,
-                request.Data.EndDate, request.Data.PortfolioId);
+            var workExperience = new Domain.Models.WorkExperience(request.Data.Description,
+                request.Data.StartDate, request.Data.PortfolioId);
             await workExperienceRepository.AddAsync(workExperience, cancellationToken);
             await workExperienceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return Successful();

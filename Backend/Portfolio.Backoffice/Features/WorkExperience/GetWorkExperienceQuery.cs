@@ -31,10 +31,8 @@ public sealed class GetPortfolioWorkExperienceQueryHandler(
         {
             Id = workExperience.Id,
             PortfolioId = workExperience.PortfolioId,
-            Company = workExperience.Company,
-            EndDate = workExperience.EndDate,
+            Description = workExperience.Description,
             StartDate = workExperience.StartDate,
-            Position = workExperience.Position
         };
         return Successful(result);
     }

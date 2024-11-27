@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Domain.Repositories;
+using Portfolio.Infrastructure.Options;
+using Portfolio.Infrastructure.Services;
 using Portfolio.Infrastructure.Storage;
 using Portfolio.Infrastructure.Storage.Repositories;
 
@@ -14,6 +16,10 @@ public static class DependencyInjection
     {
         var databaseConnectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<PortfolioDbContext>(opt => { opt.UseNpgsql(databaseConnectionString); });
+        
+        services.AddScoped<IStorageService, StorageService>();
+        services.Configure<WebSiteOptions>(configuration.GetSection("WebSite"));
+
         RegisterRepositories(services);
     }
 

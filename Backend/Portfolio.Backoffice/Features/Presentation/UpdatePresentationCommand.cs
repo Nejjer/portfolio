@@ -10,10 +10,9 @@ namespace Portfolio.Backoffice.Features.Presentation
         public long Id { get; set; }
         public string Title { get; set; }
         public string Link { get; set; }
-        public string Event { get; set; }
-        public string PresentationDate { get; set; }
         public string Description { get; set; }
         public long PortfolioId { get; set; }
+        public string Image { get; set; }
     }
 
     public sealed class UpdatePresentationCommandHandler(IPresentationRepository presentationRepository)
@@ -29,8 +28,8 @@ namespace Portfolio.Backoffice.Features.Presentation
                 return Error(NotFoundError.Instance);
             }
 
-            presentation.Update(request.Title, request.Link, request.Event, request.PresentationDate,
-                request.Description, request.PortfolioId);
+            presentation.Update(request.Title, request.Link,
+                request.Description, request.PortfolioId, request.Image);
             await presentationRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return Successful();
         }

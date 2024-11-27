@@ -24,8 +24,6 @@ namespace Portfolio.Backoffice.Features.Presentation
             {
                 Id = p.Id,
                 Title = p.Title,
-                Event = p.Event,
-                PresentationDate = p.PresentationDate,
                 Description = p.Description,
                 Link = p.Link,
                 PortfolioId = p.PortfolioId

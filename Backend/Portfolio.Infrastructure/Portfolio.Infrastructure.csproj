@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <PackageReference Include="Ftsoft.Storage.EntityFramework" Version="1.0.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="6.0.0-preview.4.21253.5" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
     </ItemGroup>
 
@@ -16,7 +17,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Folder Include="Migrations\" />
+      <Folder Include="Models\" />
     </ItemGroup>
 
 </Project>
