@@ -38,7 +38,7 @@ const WorkExperience: FC = () => {
           .map((wexp) => (
             <WorkExpItem
               key={wexp.id}
-              text={wexp.company}
+              text={wexp.description}
               year={parseInt(wexp.startDate)}
             />
           ))}

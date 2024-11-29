@@ -10,6 +10,7 @@ export interface IPortfolio {
       value: string;
     },
   ];
+  credits: string[];
 }
 
 export interface IPresentation {
@@ -36,7 +37,7 @@ export interface IPublication {
 export interface IWorkExperience {
   domainEvents: string[];
   id: number;
-  name: string;
+  description: string;
   year: number;
   company: string;
   position: string;

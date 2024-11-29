@@ -24,10 +24,16 @@ const Header: FC = () => {
           <h2 className={'text-2xl font-bold md:text-5xl'}>
             {mainStore.portfolio?.name}
           </h2>
-          <div className={'mt-2 h-full md:mt-4 md:bg-grey1 md:p-5'}>
+          <div className={'mt-2'}>
+            {mainStore.portfolio?.credits.join(', ')}
+          </div>
+          <div className={'mt-2 h-full hidden md:block md:mt-4 md:bg-grey1 md:p-5'}>
             {mainStore.portfolio?.shortInfo}
           </div>
         </div>
+      </div>
+      <div className={'mt-2 h-full md:hidden md:mt-4'}>
+        {mainStore.portfolio?.shortInfo}
       </div>
     </section>
   );

@@ -12,7 +12,7 @@ export class MainStore {
   public presentations: IPresentation[] = [];
   public workExps: IWorkExperience[] = [];
   public publications: IPublication[] = [];
-  private id = 0;
+  private id = 1;
 
   constructor() {
     this.update();
