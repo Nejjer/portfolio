@@ -19,6 +19,7 @@ public sealed class GetPortfoliosQueryHandler(IPortfolioRepository portfolioRepo
         var portfolio = await portfolioRepository.ListAsync(cancellationToken);
         var result = portfolio.Select(p =>new PortfolioDto()
         {
+            Id = p.Id,
             Name = p.Name,
             ShortInfo = p.ShortInfo,
             Slogan = p.Slogan,
