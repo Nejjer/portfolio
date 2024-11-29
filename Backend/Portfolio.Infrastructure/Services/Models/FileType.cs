@@ -7,6 +7,7 @@ public enum FileType
     Png,
     Pdf,
     Doc,
+    Pptx,
     Docx,
     Xls,
     Xlsx
