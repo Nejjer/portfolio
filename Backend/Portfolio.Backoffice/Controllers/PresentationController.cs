@@ -17,14 +17,14 @@ public class PresentationController(IMediator mediator) : BaseController(mediato
         await Execute(query);
 
     [HttpPost]
-    public async Task<IActionResult> Create(CreateConferenceCommand command) =>
+    public async Task<IActionResult> Create(CreatePresentationCommand command) =>
         await Execute(command);
 
     [HttpPut("{id:long}")]
-    public async Task<IActionResult> Update(UpdateConferenceCommand command) =>
+    public async Task<IActionResult> Update(UpdatePresentationCommand command) =>
         await Execute(command);
 
     [HttpDelete("{id:long}")]
-    public async Task<IActionResult> Delete(DeleteConferenceCommand command) =>
+    public async Task<IActionResult> Delete(DeletePresentationCommand command) =>
         await Execute(command);
 }
