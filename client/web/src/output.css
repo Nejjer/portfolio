@@ -826,6 +826,10 @@ html {
   width: 100%;
 }
 
+.max-w-40 {
+  max-width: 10rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1000,6 +1004,11 @@ html {
   background-color: rgb(171 228 250 / var(--tw-bg-opacity));
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -1048,6 +1057,16 @@ html {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.px-\[60px\] {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.\!px-\[60px\] {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
 }
 
 .pb-10 {
@@ -1109,6 +1128,11 @@ html {
 .text-dark-blue {
   --tw-text-opacity: 1;
   color: rgb(7 114 180 / var(--tw-text-opacity));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .text-white {

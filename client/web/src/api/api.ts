@@ -14,7 +14,6 @@ export interface IPortfolio {
 }
 
 export interface IPresentation {
-  domainEvents: string[];
   id: number;
   link: string;
   title: string;
@@ -22,6 +21,7 @@ export interface IPresentation {
   presentationDate: string;
   description: string;
   portfolioId: number;
+  image: string;
 }
 
 export interface IPublication {

@@ -9,8 +9,8 @@ const Header: FC = () => {
   } = useContext<AppStoreContext>(StoreCtx);
 
   return (
-    <section className={'mb-32 flex flex-col'}>
-      <div className={'p-4'}>
+    <section className={'mb-32 flex flex-col !px-[60px]'}>
+      <div className={'py-4'}>
         <Navigation />
       </div>
       <div className={'mt-9 flex gap-5 md:gap-10'}>
@@ -27,12 +27,14 @@ const Header: FC = () => {
           <div className={'mt-2'}>
             {mainStore.portfolio?.credits.join(', ')}
           </div>
-          <div className={'mt-2 h-full hidden md:block md:mt-4 md:bg-grey1 md:p-5'}>
+          <div
+            className={'mt-2 hidden h-full md:mt-4 md:block md:bg-grey1 md:p-5'}
+          >
             {mainStore.portfolio?.shortInfo}
           </div>
         </div>
       </div>
-      <div className={'mt-2 h-full md:hidden md:mt-4'}>
+      <div className={'mt-2 h-full md:mt-4 md:hidden'}>
         {mainStore.portfolio?.shortInfo}
       </div>
     </section>

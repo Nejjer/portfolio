@@ -40,8 +40,8 @@ const conferenceItems: IConference[] = [
 
 export const ParticipationInConferences: FC = () => {
   return (
-    <section className={'relative flex h-[552px] flex-col'}>
-      <div className={'p-4'}>
+    <section className={'relative flex h-[552px] flex-col !px-[60px]'}>
+      <div className={'py-4'}>
         <Navigation />
       </div>
       <h4 className={'mb-10 mt-9 text-3xl font-bold'}>
