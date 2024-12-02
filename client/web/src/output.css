@@ -1029,6 +1029,11 @@ html {
   padding: 2rem;
 }
 
+.\!px-\[60px\] {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1057,16 +1062,6 @@ html {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-\[60px\] {
-  padding-left: 60px;
-  padding-right: 60px;
-}
-
-.\!px-\[60px\] {
-  padding-left: 60px !important;
-  padding-right: 60px !important;
 }
 
 .pb-10 {
