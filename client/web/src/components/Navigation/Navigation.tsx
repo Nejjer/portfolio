@@ -1,15 +1,19 @@
 import { Link } from 'react-router-dom';
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 import Burger from './Burger.svg?react';
+import { observer } from 'mobx-react';
+import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
 
 interface Props {
   isAbsolutePos?: boolean;
 }
 
-export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
+const Navigation: FC<Props> = ({ isAbsolutePos }) => {
   const className = isAbsolutePos ? 'nav-pos' : '';
   const [active, setActive] = useState(false);
-
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
   window.onclick = () => setActive(false);
 
   return (
@@ -21,7 +25,7 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
         }
       >
         <Link to={'/'}>
-          <h3 className={'text-2xl font-bold'}>Заголовок</h3>
+          <h3 className={'text-2xl font-bold'}>{mainStore.portfolio?.name}</h3>
         </Link>
         <nav>
           <ul className={'flex justify-between gap-4'}>
@@ -38,7 +42,7 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
         </nav>
       </div>
       <div
-        className={`bg-white-transparent fixed right-5 top-5 flex ${active ? 'h-auto' : 'h-10'} ${active ? 'w-36' : 'w-10'} cursor-pointer items-center justify-center rounded-[20px] transition-all md:hidden`}
+        className={`fixed right-5 top-5 flex bg-white-transparent ${active ? 'h-auto' : 'h-10'} ${active ? 'w-36' : 'w-10'} cursor-pointer items-center justify-center rounded-[20px] transition-all md:hidden`}
       >
         <Burger
           onClick={(e) => {
@@ -64,3 +68,6 @@ export const Navigation: FC<Props> = ({ isAbsolutePos }) => {
     </>
   );
 };
+
+const connected = observer(Navigation);
+export { connected as Navigation };

@@ -14,7 +14,7 @@ const Contacts: FC = () => {
   } = useContext<AppStoreContext>(StoreCtx);
 
   const contact = (text: string) => (
-    <li className={'mb-6 flex w-full items-center gap-4'}>
+    <li key={text} className={'mb-6 flex w-full items-center gap-4'}>
       <div className={'h-6 w-6 bg-blue'}></div> {text}
     </li>
   );

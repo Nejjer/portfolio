@@ -1,58 +1,66 @@
-import { FC } from 'react';
+import { FC, useContext, useState } from 'react';
+import { AppStoreContext, StoreCtx } from '../../../stores/WithStore.tsx';
+import { IConference } from '../../../api/api.ts';
+import { observer } from 'mobx-react';
 import { Navigation } from '../../../components/Navigation';
 
-interface IConference {
-  title: string;
-  info: string;
-}
-
-const ConferenceItem = (conference: IConference) => (
-  <li className={'bg-white p-3'}>
-    <h5 className={'text-xl font-bold'}>{conference.title}</h5>
-    <p>{conference.info}</p>
-  </li>
-);
-
-const conferenceItems: IConference[] = [
-  {
-    title:
-      'Международная научно-методическая конференция «Новые образовательные технологии в ВУЗе»',
-    info: 'Екатеринбург (Россия), 2013 г.',
-  },
-  {
-    title: 'Международный научный Арктический Саммит',
-    info: 'Краков (Польша), 2013 г.',
-  },
-  {
-    title: 'Международный симпозиум «Жизнь в движении. Освоение Арктики»',
-    info: 'Вена (Австрия), 2011 г.',
-  },
-  {
-    title: 'Международный научный Арктический Саммит',
-    info: 'Хельсинки (Финляндия), 2014 г.',
-  },
-  {
-    title:
-      'XIII Международная конференция «Размышления о науке в “темные” времена»',
-    info: 'Бирмингем (Великобритания), 2014 г.',
-  },
-];
-
-export const ParticipationInConferences: FC = () => {
+const ConferenceItem: FC<{
+  conference: IConference;
+  onClick: () => void;
+  active: boolean;
+}> = ({ conference, onClick, active }) => {
   return (
-    <section className={'relative flex h-[552px] flex-col !px-[60px]'}>
+    <li
+      onClick={onClick}
+      className={`flex cursor-pointer gap-3 px-3 py-2 text-base text-gray-800 ${active ? 'bg-ultra-white-blue font-semibold' : 'bg-white'}`}
+    >
+      {conference.name}
+    </li>
+  );
+};
+
+const ParticipationInConferences: FC = () => {
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
+
+  const [active, setActive] = useState(0);
+
+  if (!mainStore.conferences.length) {
+    return null;
+  }
+
+  return (
+    <section className={'!px-[60px]'}>
       <div className={'py-4'}>
         <Navigation />
       </div>
-      <h4 className={'mb-10 mt-9 text-3xl font-bold'}>
-        Участие в конференциях
-      </h4>
-      <ul className={'grid columns-1 gap-0.5 overflow-auto bg-blue'}>
-        {conferenceItems.map(({ title, info }) => (
-          <ConferenceItem title={title} info={info} />
-        ))}
-        <div />
-      </ul>
+      <h4 className={'mb-4 mt-8 text-3xl font-bold'}>Участие в конференциях</h4>
+      <div className='flex h-[600px] flex-col-reverse gap-6 md:h-[300px] md:flex-row'>
+        <div className='relative flex-[2] overflow-hidden'>
+          <img
+            src={mainStore.conferences[active].image}
+            alt='Example'
+            className='absolute inset-0 h-full w-full object-contain object-center'
+          />
+        </div>
+
+        <div className='flex-[3] overflow-auto'>
+          <ul className={'grid columns-1 gap-0.5  bg-ultra-white-blue'}>
+            {mainStore.conferences.map((pres, index) => (
+              <ConferenceItem
+                key={pres.id}
+                conference={pres}
+                onClick={() => setActive(index)}
+                active={index === active}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };
+
+const connected = observer(ParticipationInConferences);
+export { connected as ParticipationInConferences };

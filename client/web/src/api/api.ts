@@ -25,7 +25,6 @@ export interface IPresentation {
 }
 
 export interface IPublication {
-  domainEvents: string[];
   id: number;
   title: string;
   publisher: string;
@@ -35,7 +34,6 @@ export interface IPublication {
 }
 
 export interface IWorkExperience {
-  domainEvents: string[];
   id: number;
   description: string;
   year: number;
@@ -44,6 +42,13 @@ export interface IWorkExperience {
   startDate: string;
   endDate: string;
   portfolioId: number;
+}
+
+export interface IConference {
+  Date: string;
+  name: string;
+  image: string;
+  id: number;
 }
 
 class Api {
@@ -63,6 +68,10 @@ class Api {
   public async getWorkExp(id: ID): Promise<IWorkExperience[]> {
     return (await axiosInstance.get<IWorkExperience[]>(`${id}/workExperience`))
       .data;
+  }
+
+  public async getConferences(id: ID): Promise<IConference[]> {
+    return (await axiosInstance.get<IConference[]>(`${id}/conferences`)).data;
   }
 }
 

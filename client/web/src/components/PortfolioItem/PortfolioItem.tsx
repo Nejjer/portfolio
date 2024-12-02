@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   title: string;
@@ -6,11 +7,11 @@ interface Props {
 
 export const PortfolioItem: FC<Props> = ({ title }) => {
   return (
-    <li className={'border-dark-blue basis-[260px] border p-3'}>
-      <div className={'bg-blue mb-3 h-60 w-full'}></div>
-      <a href='/' className={'block text-center text-2xl'}>
+    <li className={'basis-[260px] border border-dark-blue p-3'}>
+      <div className={'mb-3 h-60 w-full bg-blue'}></div>
+      <Link to='/portfolio' className={'block text-center text-2xl'}>
         {title}
-      </a>
+      </Link>
     </li>
   );
 };

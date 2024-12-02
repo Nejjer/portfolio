@@ -1,9 +1,16 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { Button } from '../Button';
 import { PortfolioItem } from '../PortfolioItem';
 import { useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react';
+import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
+import { pluralize } from '../../utils/pluralize.ts';
 
-export const Portfolio: FC = () => {
+const Portfolio: FC = () => {
+  const {
+    appStore: { mainStore },
+  } = useContext<AppStoreContext>(StoreCtx);
+
   const navigation = useNavigate();
 
   return (
@@ -25,11 +32,20 @@ export const Portfolio: FC = () => {
       <ul
         className={'flex flex-col gap-5 overflow-x-auto md:flex-row md:gap-10'}
       >
-        <PortfolioItem title={'N научных конференций'} />
-        <PortfolioItem title={'Участник X конференций'} />
-        <PortfolioItem title={'Прочие достижения'} />
+        <PortfolioItem
+          title={`${pluralize(mainStore.conferences.length, ['научная конференция', 'научные конференции', 'научных конференций'])}`}
+        />
+        <PortfolioItem
+          title={`Автор ${pluralize(mainStore.publications.length, ['публикации', 'публикаций', 'публикаций'])}`}
+        />
+        <PortfolioItem
+          title={`Более ${pluralize(new Date().getFullYear() - parseInt(mainStore.workExps[mainStore.workExps.length - 1]?.startDate), ['года', 'лет', 'лет'])} опыта работы`}
+        />
         <PortfolioItem title={'Прочие достижения'} />
       </ul>
     </section>
   );
 };
+
+const connected = observer(Portfolio);
+export { connected as Portfolio };
