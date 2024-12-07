@@ -1,0 +1,13 @@
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\bin\Debug\net8.0\Portfolio.Domain.deps.json
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\bin\Debug\net8.0\Portfolio.Domain.dll
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\bin\Debug\net8.0\Portfolio.Domain.pdb
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.csproj.AssemblyReference.cache
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.GeneratedMSBuildEditorConfig.editorconfig
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.AssemblyInfoInputs.cache
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.AssemblyInfo.cs
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.csproj.CoreCompileInputs.cache
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.sourcelink.json
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.dll
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\refint\Portfolio.Domain.dll
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\Portfolio.Domain.pdb
+\\wsl.localhost\Ubuntu\root\devofy\code\portfolio\Backend\Portfolio.Domain\obj\Debug\net8.0\ref\Portfolio.Domain.dll
