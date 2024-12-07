@@ -100,6 +100,10 @@ class Api {
       workExperience,
     );
   }
+
+  public async deleteWorkExperience(id: ID) {
+    return await axiosInstance.delete(`WorkExperience/${id}`);
+  }
 }
 
 export const api = new Api();

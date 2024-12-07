@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { DFDialog } from '@gravity-ui/dialog-fields';
 import {
   Breadcrumbs,
+  Button,
   Card,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
@@ -67,8 +68,27 @@ const WorkExperience: FC = () => {
       <DFDialog<FormValues>
         visible={visibleDialog}
         footerProps={{
+          propsButtonApply: {
+            loading: mainStore.isLoading === 'SubmitWorkExperience',
+          },
           textApply: editableId ? 'Изменить' : 'Добавить',
           textCancel: 'Отменить',
+          content: (
+            <div>
+              {editableId && (
+                <Button
+                  loading={mainStore.isLoading === 'SubmitWorkExperience'}
+                  view={'outlined-danger'}
+                  onClick={() => {
+                    mainStore.deleteWorkExperience(editableId);
+                    setVisibleDialog(false);
+                  }}
+                >
+                  Удалить
+                </Button>
+              )}
+            </div>
+          ),
         }}
         headerProps={{
           title: 'Опыт работы',
@@ -112,6 +132,7 @@ const WorkExperience: FC = () => {
         {mainStore.workExps.map((workExp) => (
           <Item
             text={workExp.startDate}
+            key={workExp.id}
             onClick={() => {
               setEditableId(workExp.id);
               setInitialValues({

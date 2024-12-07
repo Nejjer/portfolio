@@ -7,6 +7,7 @@ import {
   IPublication,
   IWorkExperience,
 } from '../api/api.ts';
+import { ID } from '../api/axiosInstance.ts';
 
 type Loading =
   | 'None'
@@ -46,9 +47,11 @@ export class MainStore {
 
   public async updateWorkExps() {
     const wp = await api.getWorkExp(this.idOfActivePortfolio);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    this.workExps = wp.sort((a, b) => a.startDate - b.startDate);
+
+    runInAction(
+      // @ts-ignore
+      () => (this.workExps = wp.sort((a, b) => a.startDate - b.startDate)),
+    );
   }
 
   public async submitPortfolio(portfolio: IPortfolioDTO): Promise<void> {
@@ -65,7 +68,7 @@ export class MainStore {
     this.isLoading = 'SubmitWorkExperience';
     await api.postWorkExperience(workExperience);
     runInAction(() => {
-      this.update('SubmitPortfolio');
+      this.update('SubmitWorkExperience');
     });
     this.updateWorkExps();
   }
@@ -76,7 +79,16 @@ export class MainStore {
     this.isLoading = 'SubmitWorkExperience';
     await api.putWorkExperience(workExperience);
     runInAction(() => {
-      this.update('SubmitPortfolio');
+      this.update('SubmitWorkExperience');
+    });
+    this.updateWorkExps();
+  }
+
+  public async deleteWorkExperience(id: ID): Promise<void> {
+    this.isLoading = 'SubmitWorkExperience';
+    await api.deleteWorkExperience(id);
+    runInAction(() => {
+      this.update('SubmitWorkExperience');
     });
     this.updateWorkExps();
   }
