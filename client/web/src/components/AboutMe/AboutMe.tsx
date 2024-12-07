@@ -11,8 +11,8 @@ const AboutMe: FC = () => {
     <section
       className={'mb-14 mt-8 flex w-full gap-5 md:mb-32 md:mt-32 md:gap-10'}
     >
-      <div className={'h-40 basis-2/5 bg-dark-blue md:h-[400px]'}></div>
-      <div className={'flex flex-grow flex-col'}>
+      <div className={'h-40  basis-1/3 bg-dark-blue md:h-[400px]'}></div>
+      <div className={'flex basis-2/3 flex-col'}>
         <p className={'hidden text-xl md:visible'}>Меня зовут</p>
         <h2 className={'text-lg font-bold md:text-5xl'}>
           {mainStore.portfolio?.name}

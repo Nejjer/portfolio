@@ -18,9 +18,13 @@ const Publications: FC = () => {
   } = useContext<AppStoreContext>(StoreCtx);
 
   return (
-    <section className={'mt-20 h-[351px]'}>
+    <section className={'mt-20'}>
       <h4 className={'mb-10 text-3xl font-bold'}>Публикации</h4>
-      <ul className={'grid columns-1 gap-0.5 bg-ultra-white-blue'}>
+      <ul
+        className={
+          'grid h-[351px]  columns-1 gap-0.5 overflow-auto bg-ultra-white-blue'
+        }
+      >
         {mainStore.publications.map(({ id, title }) => (
           <PublicationItem key={id} text={title} />
         ))}

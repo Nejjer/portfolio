@@ -9,17 +9,17 @@ const Header: FC = () => {
   } = useContext<AppStoreContext>(StoreCtx);
 
   return (
-    <section className={'mb-32 flex flex-col !px-[60px]'}>
+    <section className={'mb-16 flex flex-col md:!px-[60px]'}>
       <div className={'py-4'}>
         <Navigation />
       </div>
       <div className={'mt-9 flex gap-5 md:gap-10'}>
         <div
           className={
-            'h-[180px] w-[150px] bg-dark-blue md:h-[400px] md:w-[360px]'
+            'h-[180px] w-[150px] basis-1/3 bg-dark-blue md:h-[400px] md:w-[360px]'
           }
         ></div>
-        <div className={'flex flex-grow flex-col'}>
+        <div className={'flex basis-2/3 flex-col'}>
           <p className={'hidden text-xl md:block'}>Обо мне</p>
           <h2 className={'text-2xl font-bold md:text-5xl'}>
             {mainStore.portfolio?.name}
@@ -34,7 +34,7 @@ const Header: FC = () => {
           </div>
         </div>
       </div>
-      <div className={'mt-2 h-full md:mt-4 md:hidden'}>
+      <div className={'mt-10 h-full md:mt-4 md:hidden'}>
         {mainStore.portfolio?.shortInfo}
       </div>
     </section>

@@ -31,7 +31,7 @@ const ParticipationInConferences: FC = () => {
   }
 
   return (
-    <section className={'!px-[60px]'}>
+    <section className={'md:!px-[60px]'}>
       <div className={'py-4'}>
         <Navigation />
       </div>
