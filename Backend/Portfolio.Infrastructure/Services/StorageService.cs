@@ -57,7 +57,6 @@ public class StorageService(IOptions<WebSiteOptions> options, ILogger<StorageSer
             FileType.Docx => ".docx",
             FileType.Xls => ".xls",
             FileType.Xlsx => ".xlsx",
-            FileType.Pptx => ".pptx",
             _ => throw new ArgumentOutOfRangeException(),
         };
     }

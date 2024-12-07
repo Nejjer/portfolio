@@ -34,7 +34,8 @@ public sealed class GetPortfolioPresentationsQueryHandler(
                 Title = p.Title,
                 Description = p.Description,
                 Link = p.Link,
-                PortfolioId = p.PortfolioId
+                PortfolioId = p.PortfolioId,
+                Image = p.Image,
             }).ToList();
         return Successful(result);
     }

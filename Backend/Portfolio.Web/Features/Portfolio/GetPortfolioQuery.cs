@@ -34,7 +34,8 @@ public sealed class GetPortfolioQueryHandler(IPortfolioRepository portfolioRepos
             Name = portfolio.Name,
             ShortInfo = portfolio.ShortInfo,
             Slogan = portfolio.Slogan,
-            Contacts = contacts
+            Contacts = contacts,
+            Credits = portfolio.Credits,
         };
         return Successful(result);
     }

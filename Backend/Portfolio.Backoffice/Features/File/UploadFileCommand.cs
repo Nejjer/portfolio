@@ -20,8 +20,7 @@ public sealed class UploadFileCommandHandler
     [
         FileType.Doc, FileType.Docx, FileType.Jpg,
         FileType.Png, FileType.Pdf, FileType.Jpeg,
-        FileType.Png, FileType.Xls, FileType.Xlsx,
-        FileType.Pptx,
+        FileType.Png, FileType.Xls, FileType.Xlsx
     ];
 
     public override async Task<Result> Handle(UploadFileCommand request, CancellationToken cancellationToken)

@@ -27,7 +27,8 @@ public sealed class GetPortfoliosQueryHandler(IPortfolioRepository portfolioRepo
             {
                 Name = x.Name,
                 Value = x.Value
-            }).ToList()
+            }).ToList(),
+            Credits = p.Credits,
         }).ToList();
         return Successful(result);
     }

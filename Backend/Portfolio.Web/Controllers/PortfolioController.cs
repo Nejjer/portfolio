@@ -20,6 +20,11 @@ public class PortfolioController(IMediator mediator) : BaseController(mediator)
     public async Task<ActionResult<IReadOnlyList<PresentationDto>>> GetPresentations(
         GetPortfolioPresentationsQuery query) =>
         await Execute(query);
+    
+    [HttpGet("{id:long}/conferences")]
+    public async Task<ActionResult<IReadOnlyList<ConferenceDto>>> GetConferences(
+        GetPortfolioConferencesQuery query) =>
+        await Execute(query);
 
     [HttpGet("{id:long}/publications")]
     public async Task<ActionResult<IReadOnlyList<PublicationDto>>>

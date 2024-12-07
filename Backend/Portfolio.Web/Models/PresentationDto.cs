@@ -9,4 +9,5 @@ public class PresentationDto : BaseModel
     public string Description { get; set; }
 
     public long PortfolioId { get; set; }
+    public string Image { get; set; }
 }
