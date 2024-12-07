@@ -26,6 +26,6 @@ public class WorkExperienceController(IMediator mediator) : BaseController(media
         await Execute(command);
 
     [HttpDelete("{id:long}")]
-    public async Task<IActionResult> Delete(DeleteConferenceCommand command) =>
+    public async Task<IActionResult> Delete(DeleteWorkExperienceCommand command) =>
         await Execute(command);
 }

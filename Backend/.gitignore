@@ -1,0 +1,8 @@
+*/bin
+*/obj
+obj
+.idea
+Portfolio.Infrastructure/obj/*
+Portfolio.Domain/obj/*
+Portfolio.Backoffice/obj/*
+Portfolio.Web/obj/*
