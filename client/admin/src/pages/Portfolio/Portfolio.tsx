@@ -5,12 +5,9 @@ import { Form } from 'react-final-form';
 import { Button, Card } from '@gravity-ui/uikit';
 import { observer } from 'mobx-react';
 import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
-import {
-  dynamicConfig,
-  DynamicField,
-  Spec,
-  SpecTypes,
-} from '@gravity-ui/dynamic-forms';
+import { dynamicConfig, DynamicField } from '@gravity-ui/dynamic-forms';
+import { IPortfolioDTO } from '../../api/api.ts';
+import { specs } from './formSpec.ts';
 
 const Item: FC<{ name: string; path: string }> = ({ name, path }) => {
   return (
@@ -31,93 +28,7 @@ const sections = [
   { path: 'about', name: 'Обо мне' },
   { path: 'presentation', name: 'Презентации' },
   { path: 'conferences', name: 'Конференции' },
-];
-
-type IMySpec = Spec & {
-  name: string;
-};
-
-const specs: IMySpec[] = [
-  {
-    type: SpecTypes.String,
-    viewSpec: {
-      type: 'base',
-      layout: 'row',
-      layoutTitle: 'ФИО',
-      placeholder: 'ФИО',
-    },
-    name: 'name',
-  },
-  {
-    type: SpecTypes.String,
-    viewSpec: {
-      type: 'textarea',
-      layout: 'row',
-      layoutTitle: 'Короткая информация',
-      placeholder: 'Короткая информация',
-    },
-    name: 'shortInfo',
-  },
-  {
-    type: SpecTypes.String,
-    viewSpec: {
-      type: 'base',
-      layout: 'row',
-      layoutTitle: 'Слоган',
-      placeholder: 'Слоган',
-    },
-    name: 'slogan',
-  },
-  {
-    type: SpecTypes.String,
-    viewSpec: {
-      type: 'base',
-      layout: 'row',
-      layoutTitle: 'Заслуги',
-      placeholder: 'Заслуги',
-    },
-    name: 'credits',
-  },
-  {
-    type: SpecTypes.Object,
-    name: 'contacts',
-    properties: {
-      phone: {
-        type: SpecTypes.String,
-        viewSpec: {
-          type: 'base',
-          layout: 'row',
-          placeholder: 'Телефон',
-          layoutTitle: 'Телефон',
-        },
-      },
-      telegram: {
-        type: SpecTypes.String,
-        pattern: 's*s',
-        viewSpec: {
-          type: 'base',
-          layout: 'row',
-          placeholder: 'Telegram',
-          layoutTitle: 'Telegram',
-        },
-      },
-      email: {
-        type: SpecTypes.String,
-        viewSpec: {
-          type: 'base',
-          layout: 'row',
-          placeholder: 'Почта',
-          layoutTitle: 'Почта',
-        },
-      },
-    },
-    viewSpec: {
-      type: 'base',
-      layout: 'accordeon',
-      layoutTitle: 'Контакты',
-      layoutOpen: true,
-    },
-  },
+  { path: 'workExperience', name: 'Опыт работы' },
 ];
 
 const Portfolio: FC = () => {
@@ -131,8 +42,6 @@ const Portfolio: FC = () => {
     mainStore.setActivePortfolio(parseInt(id!));
   }, []);
 
-  console.log(JSON.stringify(mainStore.getActivePortfolio()));
-
   if (!mainStore.getActivePortfolio()) {
     return;
   }
@@ -142,7 +51,9 @@ const Portfolio: FC = () => {
       <div>
         <h2 className={'mb-10 text-2xl'}>Общая информация</h2>
         <Form
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values: IPortfolioDTO) =>
+            mainStore.submitPortfolio(values)
+          }
           initialValues={mainStore.getActivePortfolio()}
         >
           {(form) => (
@@ -155,13 +66,18 @@ const Portfolio: FC = () => {
                   config={dynamicConfig}
                 />
               ))}
-              <Button onClick={form.handleSubmit} className={'mt-10'}>
+              <Button
+                onClick={form.handleSubmit}
+                className={'mt-10'}
+                loading={mainStore.isLoading === 'SubmitPortfolio'}
+              >
                 Отправить
               </Button>
             </>
           )}
         </Form>
       </div>
+      <h2 className={'text-2xl'}>Другие разделы</h2>
       <div className={'flex gap-10'}>
         {sections.map((section) => (
           <Item key={section.path} name={section.name} path={section.path} />

@@ -13,6 +13,7 @@
     "tailwind": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "dependencies": {
+    "@gravity-ui/dialog-fields": "^5.0.9",
     "@gravity-ui/dynamic-forms": "^4.14.2",
     "axios": "^1.7.7",
     "mobx-react": "^9.1.1",

@@ -1,6 +1,6 @@
 import { axiosInstance, ID } from './axiosInstance.ts';
 
-export interface IPortfolio {
+export interface IPortfolioDTO {
   name: string;
   shortInfo: string;
   slogan: string;
@@ -11,6 +11,17 @@ export interface IPortfolio {
     },
   ];
   id: ID;
+  credits: string[];
+  workExperience: IWorkExperience[];
+}
+
+export interface IPortfolio {
+  name: string;
+  shortInfo: string;
+  slogan: string;
+  contacts: string[];
+  id: ID;
+  credits: string;
 }
 
 export interface IPresentation {
@@ -34,25 +45,23 @@ export interface IPublication {
   portfolioId: number;
 }
 
-export interface IWorkExperience {
-  domainEvents: string[];
-  id: number;
-  name: string;
-  year: number;
-  company: string;
-  position: string;
+export interface IPostWorkExperience {
   startDate: string;
-  endDate: string;
   portfolioId: number;
+  description: string;
+}
+
+export interface IWorkExperience extends IPostWorkExperience {
+  id: number;
 }
 
 class Api {
-  public async getPortfolio(id: ID): Promise<IPortfolio> {
-    return (await axiosInstance.get<IPortfolio>(`${id}`)).data;
+  public async getPortfolio(id: ID): Promise<IPortfolioDTO> {
+    return (await axiosInstance.get<IPortfolioDTO>(`${id}`)).data;
   }
 
-  public async getPortfolios(): Promise<IPortfolio[]> {
-    return (await axiosInstance.get<IPortfolio[]>('Portfolio')).data;
+  public async getPortfolios(): Promise<IPortfolioDTO[]> {
+    return (await axiosInstance.get<IPortfolioDTO[]>('Portfolio')).data;
   }
 
   public async getPresentations(id: ID): Promise<IPresentation[]> {
@@ -65,8 +74,31 @@ class Api {
   }
 
   public async getWorkExp(id: ID): Promise<IWorkExperience[]> {
-    return (await axiosInstance.get<IWorkExperience[]>(`${id}/workExperience`))
+    return (
+      await axiosInstance.get<IWorkExperience[]>(
+        `workExperience?portfolioId=${id}`,
+      )
+    ).data;
+  }
+
+  public async updatePortfolio(portfolio: IPortfolioDTO): Promise<void> {
+    return (await axiosInstance.put(`Portfolio/${portfolio.id}`, portfolio))
       .data;
+  }
+
+  public async postWorkExperience(
+    workExperience: IPostWorkExperience,
+  ): Promise<void> {
+    return await axiosInstance.post('WorkExperience', workExperience);
+  }
+
+  public async putWorkExperience(
+    workExperience: IWorkExperience,
+  ): Promise<void> {
+    return await axiosInstance.put(
+      `WorkExperience/${workExperience.id}`,
+      workExperience,
+    );
   }
 }
 

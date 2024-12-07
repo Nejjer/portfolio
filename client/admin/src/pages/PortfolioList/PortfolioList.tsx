@@ -32,7 +32,7 @@ export const PortfolioList: FC = () => {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
-  if (mainStore.isLoading) {
+  if (mainStore.isLoading === 'MainLoading') {
     return (
       <div className={'mt-40 flex justify-center'}>
         <Loader size={'l'} />
