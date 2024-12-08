@@ -29,6 +29,7 @@ const sections = [
   { path: 'presentation', name: 'Презентации' },
   { path: 'conferences', name: 'Конференции' },
   { path: 'workExperience', name: 'Опыт работы' },
+  { path: 'education', name: 'Образование' },
 ];
 
 const Portfolio: FC = () => {

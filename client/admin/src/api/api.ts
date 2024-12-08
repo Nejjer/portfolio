@@ -55,6 +55,20 @@ export interface IWorkExperience extends IPostWorkExperience {
   id: number;
 }
 
+export interface IPostEducation {
+  name: string;
+  institution: string;
+  degree: string;
+  fieldOfStudy: string;
+  startYear: number;
+  endYear: number;
+  portfolioId: number;
+}
+
+export interface IEducation extends IPostEducation {
+  id: number;
+}
+
 class Api {
   public async getPortfolio(id: ID): Promise<IPortfolioDTO> {
     return (await axiosInstance.get<IPortfolioDTO>(`${id}`)).data;
@@ -81,6 +95,12 @@ class Api {
     ).data;
   }
 
+  public async getEducations(id: ID): Promise<IEducation[]> {
+    return (
+      await axiosInstance.get<IEducation[]>(`Education?portfolioId=${id}`)
+    ).data;
+  }
+
   public async updatePortfolio(portfolio: IPortfolioDTO): Promise<void> {
     return (await axiosInstance.put(`Portfolio/${portfolio.id}`, portfolio))
       .data;
@@ -101,8 +121,20 @@ class Api {
     );
   }
 
+  public async postEducation(education: IPostEducation): Promise<void> {
+    return await axiosInstance.post('Education', education);
+  }
+
+  public async putEducation(education: IEducation): Promise<void> {
+    return await axiosInstance.put(`Education/${education.id}`, education);
+  }
+
   public async deleteWorkExperience(id: ID) {
     return await axiosInstance.delete(`WorkExperience/${id}`);
+  }
+
+  public async deleteEducation(id: ID) {
+    return await axiosInstance.delete(`Education/${id}`);
   }
 }
 

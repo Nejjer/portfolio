@@ -1,7 +1,9 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import {
   api,
+  IEducation,
   IPortfolioDTO,
+  IPostEducation,
   IPostWorkExperience,
   IPresentation,
   IPublication,
@@ -13,7 +15,8 @@ type Loading =
   | 'None'
   | 'SubmitPortfolio'
   | 'MainLoading'
-  | 'SubmitWorkExperience';
+  | 'SubmitWorkExperience'
+  | 'SubmitEducation';
 
 export class MainStore {
   public portfolio: IPortfolioDTO | null = null;
@@ -21,6 +24,7 @@ export class MainStore {
   public presentations: IPresentation[] = [];
   public workExps: IWorkExperience[] = [];
   public publications: IPublication[] = [];
+  public educations: IEducation[] = [];
   private idOfActivePortfolio: number = -1;
   public isLoading: Loading = 'None';
 
@@ -54,6 +58,15 @@ export class MainStore {
     );
   }
 
+  public async updateEducation() {
+    const ed = await api.getEducations(this.idOfActivePortfolio);
+
+    runInAction(
+      // @ts-ignore
+      () => (this.educations = ed.sort((a, b) => a.startDate - b.startDate)),
+    );
+  }
+
   public async submitPortfolio(portfolio: IPortfolioDTO): Promise<void> {
     this.isLoading = 'SubmitPortfolio';
     await api.updatePortfolio(portfolio);
@@ -84,6 +97,24 @@ export class MainStore {
     this.updateWorkExps();
   }
 
+  public async postEducation(education: IPostEducation): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.postEducation(education);
+    runInAction(() => {
+      this.update('SubmitEducation');
+    });
+    this.updateEducation();
+  }
+
+  public async putEducation(education: IEducation): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.putEducation(education);
+    runInAction(() => {
+      this.update('SubmitEducation');
+    });
+    this.updateEducation();
+  }
+
   public async deleteWorkExperience(id: ID): Promise<void> {
     this.isLoading = 'SubmitWorkExperience';
     await api.deleteWorkExperience(id);
@@ -91,5 +122,14 @@ export class MainStore {
       this.update('SubmitWorkExperience');
     });
     this.updateWorkExps();
+  }
+
+  public async deleteEducation(id: ID): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.deleteEducation(id);
+    runInAction(() => {
+      this.update('SubmitEducation');
+    });
+    this.updateEducation();
   }
 }
