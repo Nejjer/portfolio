@@ -4,6 +4,7 @@ import {
   IEducation,
   IPortfolioDTO,
   IPostEducation,
+  IPostPublication,
   IPostWorkExperience,
   IPresentation,
   IPublication,
@@ -16,7 +17,8 @@ type Loading =
   | 'SubmitPortfolio'
   | 'MainLoading'
   | 'SubmitWorkExperience'
-  | 'SubmitEducation';
+  | 'SubmitEducation'
+  | 'SubmitPublication';
 
 export class MainStore {
   public portfolio: IPortfolioDTO | null = null;
@@ -64,6 +66,18 @@ export class MainStore {
     runInAction(
       // @ts-ignore
       () => (this.educations = ed.sort((a, b) => a.startDate - b.startDate)),
+    );
+  }
+
+  public async updatePublications(): Promise<void> {
+    const publications = await api.getPublications(this.idOfActivePortfolio);
+
+    runInAction(
+      () =>
+        (this.publications = publications.sort(
+          // @ts-ignore
+          (a, b) => a.publicationDate - b.publicationDate,
+        )),
     );
   }
 
@@ -131,5 +145,32 @@ export class MainStore {
       this.update('SubmitEducation');
     });
     this.updateEducation();
+  }
+
+  public async postPublication(publication: IPostPublication): Promise<void> {
+    this.isLoading = 'SubmitPublication';
+    await api.postPublication(publication);
+    runInAction(() => {
+      this.update('SubmitPublication');
+    });
+    this.updatePublications();
+  }
+
+  public async putPublication(publication: IPublication): Promise<void> {
+    this.isLoading = 'SubmitPublication';
+    await api.putPublication(publication);
+    runInAction(() => {
+      this.update('SubmitPublication');
+    });
+    this.updatePublications();
+  }
+
+  public async deletePublication(id: ID): Promise<void> {
+    this.isLoading = 'SubmitPublication';
+    await api.deletePublication(id);
+    runInAction(() => {
+      this.update('SubmitPublication');
+    });
+    this.updatePublications();
   }
 }

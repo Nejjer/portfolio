@@ -35,16 +35,6 @@ export interface IPresentation {
   portfolioId: number;
 }
 
-export interface IPublication {
-  domainEvents: string[];
-  id: number;
-  title: string;
-  publisher: string;
-  publicationDate: string;
-  description: string;
-  portfolioId: number;
-}
-
 export interface IPostWorkExperience {
   startDate: string;
   portfolioId: number;
@@ -69,6 +59,18 @@ export interface IEducation extends IPostEducation {
   id: number;
 }
 
+export interface IPostPublication {
+  title: string;
+  publisher: string;
+  publicationDate: string;
+  description: string;
+  portfolioId: ID;
+}
+
+export interface IPublication extends IPostPublication {
+  id: number;
+}
+
 class Api {
   public async getPortfolio(id: ID): Promise<IPortfolioDTO> {
     return (await axiosInstance.get<IPortfolioDTO>(`${id}`)).data;
@@ -84,7 +86,9 @@ class Api {
   }
 
   public async getPublications(id: ID): Promise<IPublication[]> {
-    return (await axiosInstance.get<IPublication[]>(`${id}/publications`)).data;
+    return (
+      await axiosInstance.get<IPublication[]>(`publication?portfolioId=${id}`)
+    ).data;
   }
 
   public async getWorkExp(id: ID): Promise<IWorkExperience[]> {
@@ -135,6 +139,21 @@ class Api {
 
   public async deleteEducation(id: ID) {
     return await axiosInstance.delete(`Education/${id}`);
+  }
+
+  public async postPublication(Publication: IPostPublication): Promise<void> {
+    return await axiosInstance.post('Publication', Publication);
+  }
+
+  public async putPublication(Publication: IPublication): Promise<void> {
+    return await axiosInstance.put(
+      `Publication/${Publication.id}`,
+      Publication,
+    );
+  }
+
+  public async deletePublication(id: ID): Promise<void> {
+    return await axiosInstance.delete(`Publication/${id}`);
   }
 }
 

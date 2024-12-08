@@ -8,6 +8,7 @@ import { configure, Lang } from '@gravity-ui/dynamic-forms';
 import { configure as configureDialog } from '@gravity-ui/dialog-fields';
 import { WorkExperience } from './pages/WorkExperience';
 import { Education } from './pages/Education';
+import { Publications } from './pages/Publications';
 
 configure({ lang: Lang.Ru });
 configureDialog({ lang: Lang.Ru });
@@ -23,6 +24,7 @@ function App() {
           <Route path='/:id' element={<Portfolio />} />
           <Route path='/:id/workExperience' element={<WorkExperience />} />
           <Route path='/:id/education' element={<Education />} />
+          <Route path='/:id/publication' element={<Publications />} />
         </Routes>
       </Container>
     </WithStore>
