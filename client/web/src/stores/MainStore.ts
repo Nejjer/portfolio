@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import {
   api,
   IConference,
+  IEducation,
   IPortfolio,
   IPresentation,
   IPublication,
@@ -14,6 +15,7 @@ export class MainStore {
   public workExps: IWorkExperience[] = [];
   public publications: IPublication[] = [];
   public conferences: IConference[] = [];
+  public educations: IEducation[] = [];
   private id = 1;
 
   constructor() {
@@ -22,10 +24,32 @@ export class MainStore {
   }
 
   public async update() {
-    this.portfolio = await api.getPortfolio(this.id);
-    this.presentations = await api.getPresentations(this.id);
-    this.workExps = await api.getWorkExp(this.id);
-    this.publications = await api.getPublications(this.id);
-    this.conferences = await api.getConferences(this.id);
+    try {
+      const [
+        portfolio,
+        presentations,
+        workExps,
+        publications,
+        conferences,
+        educations,
+      ] = await Promise.all([
+        api.getPortfolio(this.id),
+        api.getPresentations(this.id),
+        api.getWorkExp(this.id),
+        api.getPublications(this.id),
+        api.getConferences(this.id),
+        api.getEducations(this.id),
+      ]);
+
+      // Update observables only after all requests are resolved
+      this.portfolio = portfolio;
+      this.presentations = presentations;
+      this.workExps = workExps;
+      this.publications = publications;
+      this.conferences = conferences;
+      this.educations = educations;
+    } catch (error) {
+      console.error('Failed to update data:', error);
+    }
   }
 }
