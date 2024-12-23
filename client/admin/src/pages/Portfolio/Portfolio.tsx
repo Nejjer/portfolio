@@ -28,6 +28,7 @@ const sections = [
   { path: 'about', name: 'Обо мне' },
   { path: 'presentation', name: 'Презентации' },
   { path: 'conferences', name: 'Конференции' },
+  { path: 'publications', name: 'Публикации' },
   { path: 'workExperience', name: 'Опыт работы' },
 ];
 

@@ -39,16 +39,6 @@ export interface IPresentation {
   portfolioId: number;
 }
 
-export interface IPublication {
-  domainEvents: string[];
-  id: number;
-  title: string;
-  publisher: string;
-  publicationDate: string;
-  description: string;
-  portfolioId: number;
-}
-
 export interface IPostConference {
   name: string;
   date: string;
@@ -57,6 +47,18 @@ export interface IPostConference {
 }
 
 export interface IConference extends IPostConference {
+  id: number;
+}
+
+export interface IPostPublication {
+  title: string;
+  publisher: string;
+  publicationDate: string;
+  description: string;
+  portfolioId: number;
+}
+
+export interface IPublication extends IPostPublication {
   id: number;
 }
 
@@ -84,10 +86,6 @@ class Api {
       .data;
   }
 
-  public async getPublications(id: ID): Promise<IPublication[]> {
-    return (await axiosInstance.get<IPublication[]>(`${id}/publications`)).data;
-  }
-
   public async uploadFile(formData: FormData) {
     return (
       await axiosInstance.post<IUploadFile>('/Files/upload', formData, {
@@ -101,6 +99,12 @@ class Api {
   public async getConferences(id: ID): Promise<IConference[]> {
     return (
       await axiosInstance.get<IConference[]>(`Conference?portfolioId=${id}`)
+    ).data;
+  }
+
+  public async getPublications(id: ID): Promise<IPublication[]> {
+    return (
+      await axiosInstance.get<IPublication[]>(`publication?portfolioId=${id}`)
     ).data;
   }
 
@@ -146,6 +150,21 @@ class Api {
 
   public async deleteConference(id: ID) {
     return await axiosInstance.delete(`Conference/${id}`);
+  }
+
+  public async postPublication(publication: IPostPublication): Promise<void> {
+    return await axiosInstance.post('Publication', publication);
+  }
+
+  public async putPublication(publication: IPublication): Promise<void> {
+    return await axiosInstance.put(
+      `Publication/${publication.id}`,
+      publication,
+    );
+  }
+
+  public async deletePublication(id: ID) {
+    return await axiosInstance.delete(`Publication/${id}`);
   }
 }
 
