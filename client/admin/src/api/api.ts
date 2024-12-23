@@ -15,6 +15,10 @@ export interface IPortfolioDTO {
   workExperience: IWorkExperience[];
 }
 
+interface IUploadFile {
+  url: string;
+}
+
 export interface IPortfolio {
   name: string;
   shortInfo: string;
@@ -45,6 +49,17 @@ export interface IPublication {
   portfolioId: number;
 }
 
+export interface IPostConference {
+  name: string;
+  date: string;
+  portfolioId: number;
+  image: string;
+}
+
+export interface IConference extends IPostConference {
+  id: number;
+}
+
 export interface IPostWorkExperience {
   startDate: string;
   portfolioId: number;
@@ -71,6 +86,22 @@ class Api {
 
   public async getPublications(id: ID): Promise<IPublication[]> {
     return (await axiosInstance.get<IPublication[]>(`${id}/publications`)).data;
+  }
+
+  public async uploadFile(formData: FormData) {
+    return (
+      await axiosInstance.post<IUploadFile>('/Files/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+    ).data;
+  }
+
+  public async getConferences(id: ID): Promise<IConference[]> {
+    return (
+      await axiosInstance.get<IConference[]>(`Conference?portfolioId=${id}`)
+    ).data;
   }
 
   public async getWorkExp(id: ID): Promise<IWorkExperience[]> {
@@ -103,6 +134,18 @@ class Api {
 
   public async deleteWorkExperience(id: ID) {
     return await axiosInstance.delete(`WorkExperience/${id}`);
+  }
+
+  public async postConference(conference: IPostConference): Promise<void> {
+    return await axiosInstance.post('Conference', conference);
+  }
+
+  public async putConference(conference: IConference): Promise<void> {
+    return await axiosInstance.put(`Conference/${conference.id}`, conference);
+  }
+
+  public async deleteConference(id: ID) {
+    return await axiosInstance.delete(`Conference/${id}`);
   }
 }
 

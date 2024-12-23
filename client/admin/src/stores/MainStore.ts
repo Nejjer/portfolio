@@ -1,7 +1,9 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import {
   api,
+  IConference,
   IPortfolioDTO,
+  IPostConference,
   IPostWorkExperience,
   IPresentation,
   IPublication,
@@ -13,26 +15,39 @@ type Loading =
   | 'None'
   | 'SubmitPortfolio'
   | 'MainLoading'
-  | 'SubmitWorkExperience';
+  | 'SubmitWorkExperience'
+  | 'SubmitConference'
+  | 'SubmitFile'
+  | 'UpdateConference';
 
 export class MainStore {
   public portfolio: IPortfolioDTO | null = null;
   public portfolios: IPortfolioDTO[] = [];
   public presentations: IPresentation[] = [];
   public workExps: IWorkExperience[] = [];
+  public conferences: IConference[] = [];
   public publications: IPublication[] = [];
   private idOfActivePortfolio: number = -1;
   public isLoading: Loading = 'None';
 
   constructor() {
-    this.update('MainLoading');
     makeAutoObservable(this);
+
+    this.update('MainLoading');
   }
 
   public async update(loading: Loading): Promise<void> {
-    this.isLoading = loading;
-    this.portfolios = await api.getPortfolios();
-    runInAction(() => (this.isLoading = 'None'));
+    this.setIsLoading(loading);
+    this.setPortfolios(await api.getPortfolios());
+    this.setIsLoading('None');
+  }
+
+  setIsLoading(isLoading: Loading) {
+    this.isLoading = isLoading;
+  }
+
+  setPortfolios(portfolios: IPortfolioDTO[]) {
+    this.portfolios = portfolios;
   }
 
   public setActivePortfolio(id: number) {
@@ -54,12 +69,21 @@ export class MainStore {
     );
   }
 
+  public async updateConferences() {
+    this.setIsLoading('UpdateConference');
+    const wp = await api.getConferences(this.idOfActivePortfolio);
+
+    runInAction(
+      // @ts-ignore
+      () => (this.conferences = wp.sort((a, b) => a.id - b.id)),
+    );
+    this.setIsLoading('None');
+  }
+
   public async submitPortfolio(portfolio: IPortfolioDTO): Promise<void> {
     this.isLoading = 'SubmitPortfolio';
     await api.updatePortfolio(portfolio);
-    runInAction(() => {
-      this.update('SubmitPortfolio');
-    });
+    this.setIsLoading('SubmitPortfolio');
   }
 
   public async postWorkExperience(
@@ -67,9 +91,7 @@ export class MainStore {
   ): Promise<void> {
     this.isLoading = 'SubmitWorkExperience';
     await api.postWorkExperience(workExperience);
-    runInAction(() => {
-      this.update('SubmitWorkExperience');
-    });
+    this.setIsLoading('None');
     this.updateWorkExps();
   }
 
@@ -78,18 +100,36 @@ export class MainStore {
   ): Promise<void> {
     this.isLoading = 'SubmitWorkExperience';
     await api.putWorkExperience(workExperience);
-    runInAction(() => {
-      this.update('SubmitWorkExperience');
-    });
+    this.setIsLoading('None');
     this.updateWorkExps();
   }
 
   public async deleteWorkExperience(id: ID): Promise<void> {
     this.isLoading = 'SubmitWorkExperience';
     await api.deleteWorkExperience(id);
-    runInAction(() => {
-      this.update('SubmitWorkExperience');
-    });
+    this.setIsLoading('None');
     this.updateWorkExps();
+  }
+
+  /** КОНФЕРЕНЦИИ */
+  public async postConference(conference: IPostConference): Promise<void> {
+    this.isLoading = 'SubmitConference';
+    await api.postConference(conference);
+    this.setIsLoading('None');
+    this.updateConferences();
+  }
+
+  public async putConference(conference: IConference): Promise<void> {
+    this.isLoading = 'SubmitConference';
+    await api.putConference(conference);
+    this.setIsLoading('None');
+    this.updateConferences();
+  }
+
+  public async deleteConference(id: ID): Promise<void> {
+    this.isLoading = 'SubmitConference';
+    await api.deleteConference(id);
+    this.setIsLoading('None');
+    this.updateConferences();
   }
 }

@@ -17,7 +17,10 @@ interface FormValues {
   startDate: string;
 }
 
-const Item: FC<{ text: string; onClick: () => void }> = ({ text, onClick }) => {
+export const Item: FC<{ text: string; onClick: () => void }> = ({
+  text,
+  onClick,
+}) => {
   return (
     <button onClick={onClick} className={'h-48 basis-48'}>
       <Card
