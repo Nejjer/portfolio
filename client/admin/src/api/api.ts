@@ -39,6 +39,20 @@ export interface IConference extends IPostConference {
   id: number;
 }
 
+export interface IPostEducation {
+  name: string;
+  institution: string;
+  degree: string;
+  fieldOfStudy: string;
+  startYear: number;
+  endYear: number;
+  portfolioId: number;
+}
+
+export interface IEducation extends IPostEducation {
+  id: number;
+}
+
 export interface IPostPublication {
   title: string;
   publisher: string;
@@ -107,6 +121,12 @@ class Api {
   public async getPresentations(id: ID): Promise<IPresentation[]> {
     return (
       await axiosInstance.get<IPresentation[]>(`presentation?portfolioId=${id}`)
+    ).data;
+  }
+
+  public async getEducations(id: ID): Promise<IEducation[]> {
+    return (
+      await axiosInstance.get<IEducation[]>(`education?portfolioId=${id}`)
     ).data;
   }
 
@@ -184,6 +204,18 @@ class Api {
 
   public async deletePresentation(id: ID) {
     return await axiosInstance.delete(`Presentation/${id}`);
+  }
+
+  public async postEducation(education: IPostEducation): Promise<void> {
+    return await axiosInstance.post('Education', education);
+  }
+
+  public async putEducation(education: IEducation): Promise<void> {
+    return await axiosInstance.put(`Education/${education.id}`, education);
+  }
+
+  public async deleteEducation(id: ID) {
+    return await axiosInstance.delete(`Education/${id}`);
   }
 }
 

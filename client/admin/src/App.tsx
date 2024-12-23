@@ -10,6 +10,7 @@ import { WorkExperience } from './pages/WorkExperience';
 import { Conferences } from './pages/Conferences';
 import { Publications } from './pages/Publications';
 import { Presentations } from './pages/Presentations';
+import { Educations } from './pages/Educations';
 
 configure({ lang: Lang.Ru });
 configureDialog({ lang: Lang.Ru });
@@ -27,6 +28,7 @@ function App() {
           <Route path='/:id/conferences' element={<Conferences />} />
           <Route path='/:id/publications' element={<Publications />} />
           <Route path='/:id/presentations' element={<Presentations />} />
+          <Route path='/:id/educations' element={<Educations />} />
         </Routes>
       </Container>
     </WithStore>

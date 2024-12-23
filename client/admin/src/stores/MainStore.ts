@@ -2,8 +2,10 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import {
   api,
   IConference,
+  IEducation,
   IPortfolioDTO,
   IPostConference,
+  IPostEducation,
   IPostPresentation,
   IPostPublication,
   IPostWorkExperience,
@@ -24,11 +26,14 @@ type Loading =
   | 'UpdatePublication'
   | 'SubmitPublication'
   | 'SubmitPresentation'
-  | 'UpdatePresentation';
+  | 'UpdatePresentation'
+  | 'SubmitEducation'
+  | 'UpdateEducation';
 
 export class MainStore {
   public portfolio: IPortfolioDTO | null = null;
   public portfolios: IPortfolioDTO[] = [];
+  public educations: IEducation[] = [];
   public presentations: IPresentation[] = [];
   public workExps: IWorkExperience[] = [];
   public conferences: IConference[] = [];
@@ -104,6 +109,17 @@ export class MainStore {
     runInAction(
       // @ts-ignore
       () => (this.presentations = wp.sort((a, b) => a.id - b.id)),
+    );
+    this.setIsLoading('None');
+  }
+
+  public async updateEducations() {
+    this.setIsLoading('UpdateEducation');
+    const wp = await api.getEducations(this.idOfActivePortfolio);
+
+    runInAction(
+      // @ts-ignore
+      () => (this.educations = wp.sort((a, b) => a.id - b.id)),
     );
     this.setIsLoading('None');
   }
@@ -205,5 +221,27 @@ export class MainStore {
     await api.deletePresentation(id);
     this.setIsLoading('None');
     this.updatePresentations();
+  }
+
+  /** ОБРАЗОВАНИЕ */
+  public async postEducation(presentation: IPostEducation): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.postEducation(presentation);
+    this.setIsLoading('None');
+    this.updateEducations();
+  }
+
+  public async putEducation(presentation: IEducation): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.putEducation(presentation);
+    this.setIsLoading('None');
+    this.updateEducations();
+  }
+
+  public async deleteEducation(id: ID): Promise<void> {
+    this.isLoading = 'SubmitEducation';
+    await api.deleteEducation(id);
+    this.setIsLoading('None');
+    this.updateEducations();
   }
 }

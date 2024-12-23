@@ -26,6 +26,7 @@ const Item: FC<{ name: string; path: string }> = ({ name, path }) => {
 
 const sections = [
   { path: 'presentations', name: 'Презентации' },
+  { path: 'educations', name: 'Образование' },
   { path: 'conferences', name: 'Конференции' },
   { path: 'publications', name: 'Публикации' },
   { path: 'workExperience', name: 'Опыт работы' },
