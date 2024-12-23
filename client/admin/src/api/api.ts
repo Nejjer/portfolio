@@ -28,17 +28,6 @@ export interface IPortfolio {
   credits: string;
 }
 
-export interface IPresentation {
-  domainEvents: string[];
-  id: number;
-  link: string;
-  title: string;
-  event: string;
-  presentationDate: string;
-  description: string;
-  portfolioId: number;
-}
-
 export interface IPostConference {
   name: string;
   date: string;
@@ -62,6 +51,18 @@ export interface IPublication extends IPostPublication {
   id: number;
 }
 
+export interface IPostPresentation {
+  link: string;
+  title: string;
+  description: string;
+  portfolioId: number;
+  image: string;
+}
+
+export interface IPresentation extends IPostPresentation {
+  id: number;
+}
+
 export interface IPostWorkExperience {
   startDate: string;
   portfolioId: number;
@@ -79,11 +80,6 @@ class Api {
 
   public async getPortfolios(): Promise<IPortfolioDTO[]> {
     return (await axiosInstance.get<IPortfolioDTO[]>('Portfolio')).data;
-  }
-
-  public async getPresentations(id: ID): Promise<IPresentation[]> {
-    return (await axiosInstance.get<IPresentation[]>(`${id}/presentations`))
-      .data;
   }
 
   public async uploadFile(formData: FormData) {
@@ -105,6 +101,12 @@ class Api {
   public async getPublications(id: ID): Promise<IPublication[]> {
     return (
       await axiosInstance.get<IPublication[]>(`publication?portfolioId=${id}`)
+    ).data;
+  }
+
+  public async getPresentations(id: ID): Promise<IPresentation[]> {
+    return (
+      await axiosInstance.get<IPresentation[]>(`presentation?portfolioId=${id}`)
     ).data;
   }
 
@@ -165,6 +167,23 @@ class Api {
 
   public async deletePublication(id: ID) {
     return await axiosInstance.delete(`Publication/${id}`);
+  }
+
+  public async postPresentation(
+    presentation: IPostPresentation,
+  ): Promise<void> {
+    return await axiosInstance.post('Presentation', presentation);
+  }
+
+  public async putPresentation(presentation: IPresentation): Promise<void> {
+    return await axiosInstance.put(
+      `Presentation/${presentation.id}`,
+      presentation,
+    );
+  }
+
+  public async deletePresentation(id: ID) {
+    return await axiosInstance.delete(`Presentation/${id}`);
   }
 }
 

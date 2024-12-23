@@ -4,6 +4,7 @@ import {
   IConference,
   IPortfolioDTO,
   IPostConference,
+  IPostPresentation,
   IPostPublication,
   IPostWorkExperience,
   IPresentation,
@@ -21,7 +22,9 @@ type Loading =
   | 'SubmitFile'
   | 'UpdateConference'
   | 'UpdatePublication'
-  | 'SubmitPublication';
+  | 'SubmitPublication'
+  | 'SubmitPresentation'
+  | 'UpdatePresentation';
 
 export class MainStore {
   public portfolio: IPortfolioDTO | null = null;
@@ -90,6 +93,17 @@ export class MainStore {
     runInAction(
       // @ts-ignore
       () => (this.publications = wp.sort((a, b) => a.id - b.id)),
+    );
+    this.setIsLoading('None');
+  }
+
+  public async updatePresentations() {
+    this.setIsLoading('UpdatePresentation');
+    const wp = await api.getPresentations(this.idOfActivePortfolio);
+
+    runInAction(
+      // @ts-ignore
+      () => (this.presentations = wp.sort((a, b) => a.id - b.id)),
     );
     this.setIsLoading('None');
   }
@@ -167,5 +181,29 @@ export class MainStore {
     await api.deletePublication(id);
     this.setIsLoading('None');
     this.updatePublications();
+  }
+
+  /** ПРЕЗЕНТАЦИИ */
+  public async postPresentation(
+    presentation: IPostPresentation,
+  ): Promise<void> {
+    this.isLoading = 'SubmitPresentation';
+    await api.postPresentation(presentation);
+    this.setIsLoading('None');
+    this.updatePresentations();
+  }
+
+  public async putPresentation(presentation: IPresentation): Promise<void> {
+    this.isLoading = 'SubmitPresentation';
+    await api.putPresentation(presentation);
+    this.setIsLoading('None');
+    this.updatePresentations();
+  }
+
+  public async deletePresentation(id: ID): Promise<void> {
+    this.isLoading = 'SubmitPresentation';
+    await api.deletePresentation(id);
+    this.setIsLoading('None');
+    this.updatePresentations();
   }
 }
