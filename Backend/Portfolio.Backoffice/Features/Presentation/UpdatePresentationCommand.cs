@@ -1,18 +1,16 @@
 ﻿using Ftsoft.Application.Cqs.Mediatr;
 using Ftsoft.Common.Result;
+using Microsoft.AspNetCore.Mvc;
 using Portfolio.Backoffice.Errors;
+using Portfolio.Backoffice.Models;
 using Portfolio.Domain.Repositories;
 
 namespace Portfolio.Backoffice.Features.Presentation
 {
     public class UpdatePresentationCommand : Command
     {
-        public long Id { get; set; }
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Description { get; set; }
-        public long PortfolioId { get; set; }
-        public string Image { get; set; }
+        [FromRoute] public long Id { get; set; }
+        [FromBody] public PresentationDto Data { get; set; }
     }
 
     public sealed class UpdatePresentationCommandHandler(IPresentationRepository presentationRepository)
@@ -28,8 +26,8 @@ namespace Portfolio.Backoffice.Features.Presentation
                 return Error(NotFoundError.Instance);
             }
 
-            presentation.Update(request.Title, request.Link,
-                request.Description, request.PortfolioId, request.Image);
+            presentation.Update(request.Data.Title, request.Data.Link,
+                request.Data.Description, request.Data.PortfolioId, request.Data.Image);
             await presentationRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return Successful();
         }
