@@ -127,7 +127,8 @@ export class MainStore {
   public async submitPortfolio(portfolio: IPortfolioDTO): Promise<void> {
     this.isLoading = 'SubmitPortfolio';
     await api.updatePortfolio(portfolio);
-    this.setIsLoading('SubmitPortfolio');
+    this.setIsLoading('MainLoading');
+    this.setIsLoading('None');
   }
 
   public async postWorkExperience(

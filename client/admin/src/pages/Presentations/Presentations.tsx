@@ -76,7 +76,7 @@ const Presentations: FC = () => {
       // Предполагаем, что axios уже настроен для отправки на нужный endpoint
       const response = await api.uploadFile(formData);
 
-      setFileUrl(response.url);
+      setImageUrl(response.url);
     } catch (err) {
       console.error('Ошибка при загрузке файла:', err);
     }

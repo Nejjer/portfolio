@@ -102,7 +102,7 @@ const Educations: FC = () => {
           {
             name: 'name',
             type: 'text',
-            caption: 'Имя',
+            caption: 'Название',
             required: true,
           },
           {
