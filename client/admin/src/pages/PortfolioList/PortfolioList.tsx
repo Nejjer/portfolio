@@ -3,6 +3,7 @@ import { Card, Loader } from '@gravity-ui/uikit';
 import { ID } from '../../api/axiosInstance.ts';
 import { Link } from 'react-router-dom';
 import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
+import { observer } from 'mobx-react';
 
 const PortfolioItem: FC<{ name: string; id: ID }> = ({ name, id }) => {
   const {
@@ -27,7 +28,7 @@ const PortfolioItem: FC<{ name: string; id: ID }> = ({ name, id }) => {
   );
 };
 
-export const PortfolioList: FC = () => {
+const PortfolioList: FC = () => {
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
@@ -52,3 +53,6 @@ export const PortfolioList: FC = () => {
     </div>
   );
 };
+
+const connected = observer(PortfolioList);
+export { connected as PortfolioList };

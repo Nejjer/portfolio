@@ -6,45 +6,30 @@ import { DFDialog } from '@gravity-ui/dialog-fields';
 import {
   Breadcrumbs,
   Button,
-  Card,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
 } from '@gravity-ui/uikit';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs.ts';
+import { Item } from '../WorkExperience';
+import { IPostPublication } from '../../api/api.ts';
+import { truncateName } from '../../utils/truncate.ts';
 
-interface FormValues {
-  description: string;
-  startDate: string;
-}
-
-export const Item: FC<{ text: string; onClick: () => void }> = ({
-  text,
-  onClick,
-}) => {
-  return (
-    <button onClick={onClick} className={'h-48 basis-48'}>
-      <Card
-        className={
-          'flex h-full w-full items-center justify-center p-2 text-center text-xl shadow'
-        }
-        type={'action'}
-      >
-        {text}
-      </Card>
-    </button>
-  );
+const defaultVal: IPostPublication = {
+  title: '',
+  description: '',
+  portfolioId: 0,
+  publicationDate: '',
+  publisher: '',
 };
 
-const WorkExperience: FC = () => {
+const Publications: FC = () => {
   const breadcrumbs = useBreadcrumbs([
-    { text: 'Опыт работы', action: () => null },
+    { text: 'Публикации', action: () => null },
   ]);
   const { id } = useParams();
   const [visibleDialog, setVisibleDialog] = useState(false);
-  const [initialValues, setInitialValues] = useState({
-    description: '',
-    startDate: '',
-  });
+  const [initialValues, setInitialValues] =
+    useState<IPostPublication>(defaultVal);
   const [editableId, setEditableId] = useState<number | null>(null);
   const {
     appStore: { mainStore },
@@ -52,7 +37,7 @@ const WorkExperience: FC = () => {
 
   useEffect(() => {
     mainStore.setActivePortfolio(parseInt(id!));
-    mainStore.updateWorkExps();
+    mainStore.updatePublications();
   }, []);
 
   if (!mainStore.getActivePortfolio()) {
@@ -67,12 +52,12 @@ const WorkExperience: FC = () => {
         firstDisplayedItemsCount={FirstDisplayedItemsCount.One}
         lastDisplayedItemsCount={LastDisplayedItemsCount.One}
       />
-      <h2 className={'mb-10 mt-10 text-2xl'}>Опыт работы</h2>
-      <DFDialog<FormValues>
+      <h2 className={'mb-10 mt-10 text-2xl'}>Публикации</h2>
+      <DFDialog<IPostPublication>
         visible={visibleDialog}
         footerProps={{
           propsButtonApply: {
-            loading: mainStore.isLoading === 'SubmitWorkExperience',
+            loading: mainStore.isLoading === 'SubmitPublication',
           },
           textApply: editableId ? 'Изменить' : 'Добавить',
           textCancel: 'Отменить',
@@ -80,10 +65,10 @@ const WorkExperience: FC = () => {
             <div>
               {editableId && (
                 <Button
-                  loading={mainStore.isLoading === 'SubmitWorkExperience'}
+                  loading={mainStore.isLoading === 'SubmitPublication'}
                   view={'outlined-danger'}
-                  onClick={() => {
-                    mainStore.deleteWorkExperience(editableId);
+                  onClick={async () => {
+                    await mainStore.deletePublication(editableId);
                     setVisibleDialog(false);
                   }}
                 >
@@ -94,17 +79,17 @@ const WorkExperience: FC = () => {
           ),
         }}
         headerProps={{
-          title: 'Опыт работы',
+          title: 'Публикация',
         }}
         onAdd={async (form) => {
           if (editableId) {
-            await mainStore.putWorkExperience({
+            await mainStore.putPublication({
               ...form.getState().values,
               portfolioId: parseInt(id!),
               id: editableId,
             });
           } else {
-            await mainStore.postWorkExperience({
+            await mainStore.postPublication({
               ...form.getState().values,
               portfolioId: parseInt(id!),
             });
@@ -115,15 +100,27 @@ const WorkExperience: FC = () => {
         onClose={() => setVisibleDialog(false)}
         fields={[
           {
-            name: 'description',
+            name: 'title',
             type: 'textarea',
+            caption: 'Название',
+            required: true,
+          },
+          {
+            name: 'publisher',
+            type: 'text',
+            caption: 'Автор',
+            required: true,
+          },
+          {
+            name: 'description',
+            type: 'text',
             caption: 'Описание',
             required: true,
           },
           {
-            name: 'startDate',
+            name: 'publicationDate',
             type: 'text',
-            caption: 'Дата начала',
+            caption: 'Дата',
             required: true,
             validator: (value) => {
               return /[0-9]/.test(value) ? '' : 'Введите число';
@@ -132,16 +129,13 @@ const WorkExperience: FC = () => {
         ]}
       />
       <div className={'flex flex-wrap gap-10'}>
-        {mainStore.workExps.map((workExp) => (
+        {mainStore.publications.map((publication) => (
           <Item
-            text={workExp.startDate}
-            key={workExp.id}
+            text={truncateName(publication.title)}
+            key={publication.id}
             onClick={() => {
-              setEditableId(workExp.id);
-              setInitialValues({
-                description: workExp.description,
-                startDate: workExp.startDate,
-              });
+              setEditableId(publication.id);
+              setInitialValues({ ...publication });
               setVisibleDialog(true);
             }}
           />
@@ -150,10 +144,7 @@ const WorkExperience: FC = () => {
           text={'+'}
           onClick={() => {
             setEditableId(null);
-            setInitialValues({
-              description: '',
-              startDate: '',
-            });
+            setInitialValues(defaultVal);
             setVisibleDialog(true);
           }}
         />
@@ -162,5 +153,5 @@ const WorkExperience: FC = () => {
   );
 };
 
-const connected = observer(WorkExperience);
-export { connected as WorkExperience };
+const connected = observer(Publications);
+export { connected as Publications };
