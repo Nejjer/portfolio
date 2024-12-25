@@ -113,7 +113,7 @@ const Publications: FC = () => {
           },
           {
             name: 'description',
-            type: 'text',
+            type: 'textarea',
             caption: 'Описание',
             required: true,
           },

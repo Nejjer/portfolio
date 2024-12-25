@@ -8,7 +8,7 @@ export const specs: IMySpec[] = [
   {
     type: SpecTypes.String,
     viewSpec: {
-      type: 'base',
+      type: 'textarea',
       layout: 'row',
       layoutTitle: 'Название',
       placeholder: 'Название конференции',

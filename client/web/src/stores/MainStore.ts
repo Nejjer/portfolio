@@ -52,4 +52,18 @@ export class MainStore {
       console.error('Failed to update data:', error);
     }
   }
+
+  public getYearsOfWorkExp() {
+    try {
+      if (this.workExps !== null) {
+        const sortedExpt = this.workExps
+          .slice()
+          .sort((a, b) => parseInt(a.startDate) - parseInt(b.startDate));
+        return new Date().getFullYear() - parseInt(sortedExpt[0]?.startDate);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    return 5;
+  }
 }

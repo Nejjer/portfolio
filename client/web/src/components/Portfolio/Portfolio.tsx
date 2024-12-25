@@ -39,7 +39,7 @@ const Portfolio: FC = () => {
           title={`Автор ${pluralize(mainStore.publications.length, ['публикации', 'публикаций', 'публикаций'])}`}
         />
         <PortfolioItem
-          title={`Более ${pluralize(new Date().getFullYear() - parseInt(mainStore.workExps[mainStore.workExps.length - 1]?.startDate), ['года', 'лет', 'лет'])} опыта работы`}
+          title={`Более ${pluralize(mainStore.getYearsOfWorkExp(), ['года', 'лет', 'лет'])} опыта работы`}
         />
         <PortfolioItem title={'Прочие достижения'} />
       </ul>

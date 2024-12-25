@@ -100,9 +100,11 @@ const Conferences: FC = () => {
         >
           {(form) => (
             <>
-              <Dialog.Header caption='Caption' />
+              <Dialog.Header caption='Конференция' />
               <Dialog.Body>
-                {fileUrl && <img src={fileUrl} alt={'Картинка'} />}
+                {fileUrl && (
+                  <img src={fileUrl} className={'max-h-20'} alt={'Картинка'} />
+                )}
                 <input
                   type={'file'}
                   accept={'image/*'}
