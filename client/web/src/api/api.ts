@@ -51,6 +51,17 @@ export interface IConference {
   id: number;
 }
 
+export interface IEducation {
+  id: number;
+  name: string;
+  institution: string;
+  degree: string;
+  fieldOfStudy: string;
+  startYear: number;
+  endYear: number;
+  portfolioId: number;
+}
+
 class Api {
   public async getPortfolio(id: ID): Promise<IPortfolio> {
     return (await axiosInstance.get<IPortfolio>(`${id}`)).data;
@@ -72,6 +83,10 @@ class Api {
 
   public async getConferences(id: ID): Promise<IConference[]> {
     return (await axiosInstance.get<IConference[]>(`${id}/conferences`)).data;
+  }
+
+  public async getEducations(id: ID): Promise<IEducation[]> {
+    return (await axiosInstance.get<IEducation[]>(`${id}/educations`)).data;
   }
 }
 

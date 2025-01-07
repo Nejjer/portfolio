@@ -27,6 +27,7 @@ public sealed class UploadFileCommandHandler
     {
         logger.LogInformation(JsonSerializer.Serialize(request.File));
         var fileUrl = await storageService.SaveFileAsync(request.File, AllowedFileTypes, cancellationToken);
+        fileUrl = fileUrl.Replace("https://", "http://", StringComparison.OrdinalIgnoreCase);
         return fileUrl is null
             ? Error(FileUploadError.Instance)
             : Successful(new UploadFileResultDto() { Url = fileUrl });

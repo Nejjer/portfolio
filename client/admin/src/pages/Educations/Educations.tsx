@@ -6,45 +6,30 @@ import { DFDialog } from '@gravity-ui/dialog-fields';
 import {
   Breadcrumbs,
   Button,
-  Card,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
 } from '@gravity-ui/uikit';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs.ts';
+import { Item } from '../WorkExperience';
+import { IEducation, IPostEducation } from '../../api/api.ts';
 
-interface FormValues {
-  description: string;
-  startDate: string;
-}
-
-export const Item: FC<{ text: string; onClick: () => void }> = ({
-  text,
-  onClick,
-}) => {
-  return (
-    <button onClick={onClick} className={'h-48 basis-48'}>
-      <Card
-        className={
-          'flex h-full w-full items-center justify-center p-2 text-center text-xl shadow'
-        }
-        type={'action'}
-      >
-        {text}
-      </Card>
-    </button>
-  );
+const defaultVal: IPostEducation = {
+  degree: '',
+  endYear: 0,
+  name: '',
+  portfolioId: 0,
+  fieldOfStudy: '',
+  institution: '',
+  startYear: 0,
 };
 
-const WorkExperience: FC = () => {
+const Educations: FC = () => {
   const breadcrumbs = useBreadcrumbs([
-    { text: 'Опыт работы', action: () => null },
+    { text: 'Образование', action: () => null },
   ]);
   const { id } = useParams();
   const [visibleDialog, setVisibleDialog] = useState(false);
-  const [initialValues, setInitialValues] = useState({
-    description: '',
-    startDate: '',
-  });
+  const [initialValues, setInitialValues] = useState(defaultVal);
   const [editableId, setEditableId] = useState<number | null>(null);
   const {
     appStore: { mainStore },
@@ -52,7 +37,7 @@ const WorkExperience: FC = () => {
 
   useEffect(() => {
     mainStore.setActivePortfolio(parseInt(id!));
-    mainStore.updateWorkExps();
+    mainStore.updateEducations();
   }, []);
 
   if (!mainStore.getActivePortfolio()) {
@@ -68,11 +53,11 @@ const WorkExperience: FC = () => {
         lastDisplayedItemsCount={LastDisplayedItemsCount.One}
       />
       <h2 className={'mb-10 mt-10 text-2xl'}>Опыт работы</h2>
-      <DFDialog<FormValues>
+      <DFDialog<IEducation>
         visible={visibleDialog}
         footerProps={{
           propsButtonApply: {
-            loading: mainStore.isLoading === 'SubmitWorkExperience',
+            loading: mainStore.isLoading === 'SubmitEducation',
           },
           textApply: editableId ? 'Изменить' : 'Добавить',
           textCancel: 'Отменить',
@@ -80,10 +65,10 @@ const WorkExperience: FC = () => {
             <div>
               {editableId && (
                 <Button
-                  loading={mainStore.isLoading === 'SubmitWorkExperience'}
+                  loading={mainStore.isLoading === 'SubmitEducation'}
                   view={'outlined-danger'}
                   onClick={() => {
-                    mainStore.deleteWorkExperience(editableId);
+                    mainStore.deleteEducation(editableId);
                     setVisibleDialog(false);
                   }}
                 >
@@ -94,17 +79,17 @@ const WorkExperience: FC = () => {
           ),
         }}
         headerProps={{
-          title: 'Опыт работы',
+          title: 'Образование',
         }}
         onAdd={async (form) => {
           if (editableId) {
-            await mainStore.putWorkExperience({
+            await mainStore.putEducation({
               ...form.getState().values,
               portfolioId: parseInt(id!),
               id: editableId,
             });
           } else {
-            await mainStore.postWorkExperience({
+            await mainStore.postEducation({
               ...form.getState().values,
               portfolioId: parseInt(id!),
             });
@@ -115,15 +100,42 @@ const WorkExperience: FC = () => {
         onClose={() => setVisibleDialog(false)}
         fields={[
           {
-            name: 'description',
-            type: 'textarea',
-            caption: 'Описание',
+            name: 'name',
+            type: 'text',
+            caption: 'Название',
             required: true,
           },
           {
-            name: 'startDate',
+            name: 'institution',
             type: 'text',
-            caption: 'Дата начала',
+            caption: 'Учреждение',
+            required: true,
+          },
+          {
+            name: 'degree',
+            type: 'text',
+            caption: 'Степень',
+            required: true,
+          },
+          {
+            name: 'fieldOfStudy',
+            type: 'text',
+            caption: 'область исследования',
+            required: true,
+          },
+          {
+            name: 'startYear',
+            type: 'text',
+            caption: 'Год начала',
+            required: true,
+            validator: (value) => {
+              return /[0-9]/.test(value) ? '' : 'Введите число';
+            },
+          },
+          {
+            name: 'endYear',
+            type: 'text',
+            caption: 'Год окончания',
             required: true,
             validator: (value) => {
               return /[0-9]/.test(value) ? '' : 'Введите число';
@@ -132,16 +144,13 @@ const WorkExperience: FC = () => {
         ]}
       />
       <div className={'flex flex-wrap gap-10'}>
-        {mainStore.workExps.map((workExp) => (
+        {mainStore.educations.map((edu) => (
           <Item
-            text={workExp.startDate}
-            key={workExp.id}
+            text={edu.startYear.toString()}
+            key={edu.id}
             onClick={() => {
-              setEditableId(workExp.id);
-              setInitialValues({
-                description: workExp.description,
-                startDate: workExp.startDate,
-              });
+              setEditableId(edu.id);
+              setInitialValues(edu);
               setVisibleDialog(true);
             }}
           />
@@ -150,10 +159,7 @@ const WorkExperience: FC = () => {
           text={'+'}
           onClick={() => {
             setEditableId(null);
-            setInitialValues({
-              description: '',
-              startDate: '',
-            });
+            setInitialValues(defaultVal);
             setVisibleDialog(true);
           }}
         />
@@ -162,5 +168,5 @@ const WorkExperience: FC = () => {
   );
 };
 
-const connected = observer(WorkExperience);
-export { connected as WorkExperience };
+const connected = observer(Educations);
+export { connected as Educations };

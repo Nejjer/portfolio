@@ -35,9 +35,9 @@ const Navigation: FC<Props> = ({ isAbsolutePos }) => {
             <Link to={'/portfolio'} className={'cursor-pointer p-4'}>
               Портфолио
             </Link>
-            <Link to={'contacts'} className={'cursor-pointer p-4'}>
-              Контакты
-            </Link>
+            {/*<Link to={'contacts'} className={'cursor-pointer p-4'}>*/}
+            {/*  Контакты*/}
+            {/*</Link>*/}
           </ul>
         </nav>
       </div>
@@ -59,9 +59,9 @@ const Navigation: FC<Props> = ({ isAbsolutePos }) => {
             <Link to={'/portfolio'} className={'cursor-pointer px-2'}>
               Портфолио
             </Link>
-            <Link to={'contacts'} className={'cursor-pointer p-2'}>
-              Контакты
-            </Link>
+            {/*<Link to={'contacts'} className={'cursor-pointer p-2'}>*/}
+            {/*  Контакты*/}
+            {/*</Link>*/}
           </ul>
         </nav>
       </div>

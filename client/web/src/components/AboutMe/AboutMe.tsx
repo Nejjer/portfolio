@@ -21,7 +21,7 @@ const AboutMe: FC = () => {
           {mainStore.portfolio?.shortInfo}
         </p>
 
-        <div className={'mt-4 h-full bg-grey1'}></div>
+        <div className={'mt-4 h-full bg-grey5 p-2 text-2xl text-greytext'}>{mainStore.portfolio?.shortInfo}</div>
       </div>
     </section>
   );
