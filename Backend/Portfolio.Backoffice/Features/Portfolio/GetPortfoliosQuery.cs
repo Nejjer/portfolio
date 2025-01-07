@@ -3,21 +3,24 @@ using Ftsoft.Common.Result;
 using Ftsoft.Domain.Specification;
 using Portfolio.Backoffice.Errors;
 using Portfolio.Backoffice.Models;
+using Portfolio.Backoffice.Providers;
 using Portfolio.Domain.Repositories;
 
 namespace Portfolio.Backoffice.Features.Portfolio;
 
 public class GetPortfoliosQuery : Query<IReadOnlyList<PortfolioDto>>
 {
-    
 }
 
-public sealed class GetPortfoliosQueryHandler(IPortfolioRepository portfolioRepository) : QueryHandler<GetPortfoliosQuery, IReadOnlyList<PortfolioDto>>
+public sealed class GetPortfoliosQueryHandler(IUserProvider userProvider, IPortfolioRepository portfolioRepository)
+    : QueryHandler<GetPortfoliosQuery, IReadOnlyList<PortfolioDto>>
 {
-    public override async Task<Result<IReadOnlyList<PortfolioDto>>> Handle(GetPortfoliosQuery request, CancellationToken cancellationToken)
+    public override async Task<Result<IReadOnlyList<PortfolioDto>>> Handle(GetPortfoliosQuery request,
+        CancellationToken cancellationToken)
     {
-        var portfolio = await portfolioRepository.ListAsync(cancellationToken);
-        var result = portfolio.Select(p =>new PortfolioDto()
+        var availablePortfolios = userProvider.GetAvailablePortfolios();
+        var portfolio = await portfolioRepository.ListAsync(x => availablePortfolios.Contains(x.Id), cancellationToken);
+        var result = portfolio.Select(p => new PortfolioDto()
         {
             Id = p.Id,
             Name = p.Name,

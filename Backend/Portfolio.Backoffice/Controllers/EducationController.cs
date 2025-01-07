@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Backoffice.Features.Conference;
 using Portfolio.Backoffice.Features.Education;
@@ -6,6 +7,7 @@ using Portfolio.Backoffice.Models;
 
 namespace Portfolio.Backoffice.Controllers;
 
+[AllowAnonymous]
 public class EducationController(IMediator mediator) : BaseController(mediator)
 {
     [HttpGet("{id:long}")]

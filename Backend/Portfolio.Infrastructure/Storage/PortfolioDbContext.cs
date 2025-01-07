@@ -26,4 +26,5 @@ public class PortfolioDbContext : DbContext, IUnitOfWork
     public DbSet<Presentation> Presentations { get; set; }
     public DbSet<Publication> Publications { get; set; }
     public DbSet<WorkExperience> WorkExperiences { get; set; }
+    public DbSet<User> Users { get; set; }
 }

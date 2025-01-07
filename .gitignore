@@ -1,0 +1,4 @@
+﻿*\bin
+*\obj
+Backend/**/obj
+Backend/**/bin

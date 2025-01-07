@@ -1,10 +1,12 @@
 ﻿using Ftsoft.Application.Cqs.Mediatr;
 using Ftsoft.Common.Result;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Backoffice.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 public class BaseController(IMediator mediator) : Controller
 {

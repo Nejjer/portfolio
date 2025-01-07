@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Portfolio.Domain.Models;
 using Portfolio.Domain.Repositories;
 using Portfolio.Infrastructure.Options;
 using Portfolio.Infrastructure.Services;
@@ -31,5 +32,6 @@ public static class DependencyInjection
         services.RegisterRepository<IPresentationRepository, PresentationRepository>();
         services.RegisterRepository<IPublicationRepository, PublicationRepository>();
         services.RegisterRepository<IWorkExperienceRepository, WorkExperienceRepository>();
+        services.RegisterRepository<IUserRepository, UserRepository>();
     }
 }

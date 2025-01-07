@@ -3,8 +3,10 @@ using Ftsoft.Common.Result;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Backoffice.Errors;
 using Portfolio.Backoffice.Models;
+using Portfolio.Backoffice.Providers;
 using Portfolio.Domain.Models.Portfolio;
 using Portfolio.Domain.Repositories;
+using IResult = Ftsoft.Common.Result.IResult;
 
 namespace Portfolio.Backoffice.Features.Portfolio;
 
@@ -14,9 +16,20 @@ public class UpdatePortfolioCommand : Command
     [FromBody] public PortfolioDto Data { get; set; }
 }
 
-public sealed class UpdatePortfolioCommandHandler(IPortfolioRepository portfolioRepository)
+public sealed class UpdatePortfolioCommandHandler(IPortfolioRepository portfolioRepository, IUserProvider userProvider)
     : CommandHandler<UpdatePortfolioCommand>
 {
+    protected override async Task<IResult> CanHandle(UpdatePortfolioCommand request, CancellationToken cancellationToken)
+    {
+        var availablePortfolios = userProvider.GetAvailablePortfolios();
+        if (!availablePortfolios.Contains(request.Id))
+        {
+            return Error(NotFoundError.Instance);
+        }
+
+        return Successful();
+    }
+    
     public override async Task<Result> Handle(UpdatePortfolioCommand request, CancellationToken cancellationToken)
     {
         var portfolio = await portfolioRepository.SingleOrDefaultAsync(x => x.Id == request.Id, cancellationToken);

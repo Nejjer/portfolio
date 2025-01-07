@@ -3,7 +3,9 @@ using Ftsoft.Common.Result;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Backoffice.Errors;
 using Portfolio.Backoffice.Models;
+using Portfolio.Backoffice.Providers;
 using Portfolio.Domain.Repositories;
+using IResult = Ftsoft.Common.Result.IResult;
 
 namespace Portfolio.Backoffice.Features.Portfolio;
 
@@ -12,9 +14,23 @@ public class GetPortfolioQuery : Query<PortfolioDto>
     [FromRoute] public long Id { get; set; }
 }
 
-public sealed class GetPortfolioQueryHandler(IPortfolioRepository portfolioRepository)
+public sealed class GetPortfolioQueryHandler(
+    IUserProvider userProvider,
+    IPortfolioRepository portfolioRepository
+)
     : QueryHandler<GetPortfolioQuery, PortfolioDto>
 {
+    protected override async Task<IResult> CanHandle(GetPortfolioQuery request, CancellationToken cancellationToken)
+    {
+        var availablePortfolios = userProvider.GetAvailablePortfolios();
+        if (!availablePortfolios.Contains(request.Id))
+        {
+            return Error(NotFoundError.Instance);
+        }
+
+        return Successful();
+    }
+
     public override async Task<Result<PortfolioDto>> Handle(GetPortfolioQuery request,
         CancellationToken cancellationToken)
     {

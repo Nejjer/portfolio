@@ -5,8 +5,9 @@ public class Portfolio : BaseModel
     private Portfolio()
     {
     }
-    
-    public Portfolio(string name, string shortInfo, string slogan, List<PortfolioContact> contacts, List<string> credits)
+
+    public Portfolio(string name, string shortInfo, string slogan, List<PortfolioContact> contacts,
+        List<string> credits)
     {
         Name = name;
         ShortInfo = shortInfo;
@@ -15,13 +16,14 @@ public class Portfolio : BaseModel
         Slogan = slogan;
     }
 
-    public List<string> Credits { get; private set; }
+    public List<string> Credits { get; private set; } = [];
     public string Name { get; private set; }
     public string ShortInfo { get; private set; }
     public string Slogan { get; private set; }
     public List<PortfolioContact> Contacts { get; private set; }
 
-    public void Update(string name, string shortInfo, string slogan, List<PortfolioContact> contacts, List<string> credits)
+    public void Update(string name, string shortInfo, string slogan, List<PortfolioContact> contacts,
+        List<string> credits)
     {
         Credits = credits;
         Name = name;

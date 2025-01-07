@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Portfolio.Infrastructure.Storage;
@@ -11,9 +12,11 @@ using Portfolio.Infrastructure.Storage;
 namespace Portfolio.Infrastructure.Migrations
 {
     [DbContext(typeof(PortfolioDbContext))]
-    partial class PortfolioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250107123718_AddUsers")]
+    partial class AddUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

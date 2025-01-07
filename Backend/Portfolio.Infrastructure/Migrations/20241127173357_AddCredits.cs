@@ -37,7 +37,8 @@ namespace Portfolio.Infrastructure.Migrations
                 name: "Credits",
                 table: "Portfolios",
                 type: "text[]",
-                nullable: false);
+                nullable: false,
+                defaultValue: new List<string>());
 
             migrationBuilder.AddColumn<string>(
                 name: "Image",
