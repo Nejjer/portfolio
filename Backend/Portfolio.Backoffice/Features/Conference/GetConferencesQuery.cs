@@ -25,7 +25,8 @@ namespace Portfolio.Backoffice.Features.Conference
                 Id = c.Id,
                 Name = c.Name,
                 Date = c.Date,
-                PortfolioId = c.PortfolioId
+                PortfolioId = c.PortfolioId,
+                Image = c.Image,
             }).ToList();
 
             return Successful(result);

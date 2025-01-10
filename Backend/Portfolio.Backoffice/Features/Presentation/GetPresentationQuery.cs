@@ -40,7 +40,8 @@ public sealed class GetPortfolioPresentationsQueryHandler(
                 Title = presentation.Title,
                 Description = presentation.Description,
                 Link = presentation.Link,
-                PortfolioId = presentation.PortfolioId
+                PortfolioId = presentation.PortfolioId,
+                Image = presentation.Image,
             };
         return Successful(result);
     }
