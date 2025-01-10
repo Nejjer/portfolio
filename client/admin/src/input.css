@@ -7,3 +7,7 @@
         box-shadow: 5px 5px 14px -9px #0ff !important;
     }
 }
+
+html, body, #root {
+    height: 100%;
+}
