@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
       <ThemeProvider theme='dark'>
         <Routes>
           <Route path='/auth' element={<Auth />} />
-          <Route path={'/'} element={<App />} />
+          <Route path={'/*'} element={<App />} />
         </Routes>
       </ThemeProvider>
     </WithStore>

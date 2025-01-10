@@ -131,6 +131,13 @@ export class MainStore {
     this.setIsLoading('None');
   }
 
+  public async createPortfolio(portfolio: IPortfolioDTO): Promise<void> {
+    this.isLoading = 'SubmitPortfolio';
+    await api.createPortfolio(portfolio);
+    this.setIsLoading('MainLoading');
+    this.setIsLoading('None');
+  }
+
   public async postWorkExperience(
     workExperience: IPostWorkExperience,
   ): Promise<void> {

@@ -34,16 +34,19 @@ const sections = [
 
 const Portfolio: FC = () => {
   const { id } = useParams();
+  const isNew = id === 'new';
 
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
   useEffect(() => {
-    mainStore.setActivePortfolio(parseInt(id!));
+    if (!isNew) {
+      mainStore.setActivePortfolio(parseInt(id!));
+    }
   }, []);
 
-  if (!mainStore.getActivePortfolio()) {
+  if (!mainStore.getActivePortfolio() && !isNew) {
     return;
   }
 
@@ -53,7 +56,9 @@ const Portfolio: FC = () => {
         <h2 className={'mb-10 text-2xl'}>Общая информация</h2>
         <Form
           onSubmit={(values: IPortfolioDTO) =>
-            mainStore.submitPortfolio(values)
+            isNew
+              ? mainStore.createPortfolio(values)
+              : mainStore.submitPortfolio(values)
           }
           initialValues={mainStore.getActivePortfolio()}
         >
@@ -72,18 +77,26 @@ const Portfolio: FC = () => {
                 className={'mt-10'}
                 loading={mainStore.isLoading === 'SubmitPortfolio'}
               >
-                Отправить
+                {isNew ? 'Создать' : 'Обновить'}
               </Button>
             </>
           )}
         </Form>
       </div>
-      <h2 className={'text-2xl'}>Другие разделы</h2>
-      <div className={'flex gap-10'}>
-        {sections.map((section) => (
-          <Item key={section.path} name={section.name} path={section.path} />
-        ))}
-      </div>
+      {!isNew && (
+        <>
+          <h2 className={'text-2xl'}>Другие разделы</h2>
+          <div className={'flex gap-10'}>
+            {sections.map((section) => (
+              <Item
+                key={section.path}
+                name={section.name}
+                path={section.path}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
