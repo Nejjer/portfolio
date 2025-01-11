@@ -9,7 +9,7 @@ import { Form } from 'react-final-form';
 import { Button, Card } from '@gravity-ui/uikit';
 import { authApi, IAuthParam } from '../../api/authApi.ts';
 import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const specs: IMySpec[] = [
   {
@@ -60,12 +60,14 @@ export const Auth: FC = () => {
     } catch (e) {
       console.error(e);
       setError('Не удалось войти');
+      setLoading(false);
     }
   };
 
   return (
     <div className={'container flex h-full items-center justify-center'}>
       <Card view={'filled'} className={'p-6'}>
+        <h1 className={'mb-5 text-center text-2xl'}>Вход</h1>
         <Form onSubmit={(values) => handleSubmit(values as IAuthParam)}>
           {(form) => (
             <>
@@ -88,6 +90,9 @@ export const Auth: FC = () => {
             </>
           )}
         </Form>
+        <p className={'mt-2 text-center'}>
+          <Link to={'/register'}>Зарегистрироваться</Link>
+        </p>
       </Card>
     </div>
   );

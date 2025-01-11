@@ -7,13 +7,15 @@ import '@gravity-ui/uikit/styles/styles.css';
 import './output.css';
 import { Auth } from './pages/Auth';
 import { WithStore } from './stores/WithStore.tsx';
+import { Registration } from './pages/Registration';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename={'/web-admin'}>
     <WithStore>
       <ThemeProvider theme='dark'>
         <Routes>
           <Route path='/auth' element={<Auth />} />
+          <Route path='/register' element={<Registration />} />
           <Route path={'/*'} element={<App />} />
         </Routes>
       </ThemeProvider>
