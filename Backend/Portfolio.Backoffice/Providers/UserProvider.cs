@@ -15,4 +15,10 @@ public class UserProvider(IHttpContextAccessor httpContextAccessor) : IUserProvi
         var portfolios = portfoliosString.Split(',').Select(long.Parse).ToList();
         return portfolios;
     }
+    public string? GetUserEmail()
+    {
+        var user = httpContextAccessor.HttpContext?.User;
+        var email = user?.FindFirst(CustomerCustomClaims.Email)?.Value;
+        return email;
+    }
 }

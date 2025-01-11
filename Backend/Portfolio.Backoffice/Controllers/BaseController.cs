@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Portfolio.Backoffice.Controllers;
 
 [Authorize]
-[Route("api/[controller]")]
+[Route("backoffice/api/[controller]")]
 public class BaseController(IMediator mediator) : Controller
 {
     private CancellationToken CancellationToken => HttpContext.RequestAborted;

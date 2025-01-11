@@ -1,0 +1,12 @@
+2025-01-10 21:29:10.969 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-10 21:29:11.111 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-10 21:29:11.115 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-10 21:29:11.116 +05:00 [INF] Hosting environment: Development
+2025-01-10 21:29:11.116 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-10 21:29:11.784 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-10 21:29:11.970 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 188.2639ms
+2025-01-10 21:29:12.134 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-10 21:29:12.153 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/favicon-32x32.png - null null
+2025-01-10 21:29:12.169 +05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-10 21:29:12.170 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/favicon-32x32.png - 200 628 image/png 17.4235ms
+2025-01-10 21:29:12.278 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.1347ms
