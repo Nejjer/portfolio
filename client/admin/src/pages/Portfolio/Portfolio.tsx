@@ -1,5 +1,5 @@
 import { FC, useContext, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Form } from 'react-final-form';
 
 import { Button, Card } from '@gravity-ui/uikit';
@@ -35,7 +35,7 @@ const sections = [
 const Portfolio: FC = () => {
   const { id } = useParams();
   const isNew = id === 'new';
-
+  const navigate = useNavigate();
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
@@ -55,11 +55,14 @@ const Portfolio: FC = () => {
       <div>
         <h2 className={'mb-10 text-2xl'}>Общая информация</h2>
         <Form
-          onSubmit={(values: IPortfolioDTO) =>
-            isNew
-              ? mainStore.createPortfolio(values)
-              : mainStore.submitPortfolio(values)
-          }
+          onSubmit={async (values: IPortfolioDTO) => {
+            if (isNew) {
+              await mainStore.createPortfolio(values);
+              navigate('/');
+            } else {
+              mainStore.submitPortfolio(values);
+            }
+          }}
           initialValues={mainStore.getActivePortfolio()}
         >
           {(form) => (
