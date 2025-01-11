@@ -1,9 +1,10 @@
 import { FC, useContext } from 'react';
 import { Card, Loader } from '@gravity-ui/uikit';
 import { ID } from '../../api/axiosInstance.ts';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppStoreContext, StoreCtx } from '../../stores/WithStore.tsx';
 import { observer } from 'mobx-react';
+import { Item } from '../WorkExperience';
 
 const PortfolioItem: FC<{ name: string; id: ID }> = ({ name, id }) => {
   const {
@@ -33,6 +34,8 @@ const PortfolioList: FC = () => {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
+  const navigate = useNavigate();
+
   if (mainStore.isLoading === 'MainLoading') {
     return (
       <div className={'mt-40 flex justify-center'}>
@@ -50,6 +53,12 @@ const PortfolioList: FC = () => {
           id={portfolio.id}
         />
       ))}
+      <Item
+        text={'+'}
+        onClick={() => {
+          navigate('new');
+        }}
+      />
     </div>
   );
 };

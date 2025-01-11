@@ -822,6 +822,10 @@ html {
   height: 100%;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .w-0\.5 {
   width: 0.125rem;
 }
@@ -975,6 +979,12 @@ html {
   gap: 1.5rem;
 }
 
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -1025,6 +1035,11 @@ html {
 .bg-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(57 190 244 / var(--tw-bg-opacity));
+}
+
+.bg-blue2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(119 205 240 / var(--tw-bg-opacity));
 }
 
 .bg-dark-blue {
@@ -1222,6 +1237,11 @@ html {
   transition-duration: 150ms;
 }
 
+.hover\:bg-blue2:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(119 205 240 / var(--tw-bg-opacity));
+}
+
 @media (min-width: 768px) {
   .md\:visible {
     visibility: visible;
@@ -1277,6 +1297,14 @@ html {
 
   .md\:h-\[400px\] {
     height: 400px;
+  }
+
+  .md\:min-h-\[300px\] {
+    min-height: 300px;
+  }
+
+  .md\:min-h-\[351px\] {
+    min-height: 351px;
   }
 
   .md\:w-1\/2 {

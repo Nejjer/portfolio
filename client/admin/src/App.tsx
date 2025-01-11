@@ -1,5 +1,4 @@
-import { WithStore } from './stores/WithStore.tsx';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { PortfolioList } from './pages/PortfolioList';
 import { Container } from '@gravity-ui/uikit';
 import { Portfolio } from './pages/Portfolio';
@@ -11,15 +10,21 @@ import { Conferences } from './pages/Conferences';
 import { Publications } from './pages/Publications';
 import { Presentations } from './pages/Presentations';
 import { Educations } from './pages/Educations';
+import { useEffect } from 'react';
+import { api } from './api/api.ts';
 
 configure({ lang: Lang.Ru });
 configureDialog({ lang: Lang.Ru });
 
 function App() {
-  return (
-    <WithStore>
-      <Header />
+  const navigate = useNavigate();
+  useEffect(() => {
+    api.getPortfolios().catch(() => navigate('/auth'));
+  }, []);
 
+  return (
+    <>
+      <Header />
       <Container>
         <Routes>
           <Route path='/' element={<PortfolioList />} />
@@ -31,7 +36,7 @@ function App() {
           <Route path='/:id/educations' element={<Educations />} />
         </Routes>
       </Container>
-    </WithStore>
+    </>
   );
 }
 

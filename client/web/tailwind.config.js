@@ -18,6 +18,7 @@ export default {
       colors: {
         'text-color': '#32344F',
         blue: '#39BEF4',
+        blue2: '#77CDF0',
         'white-blue': '#75CEF6',
         'ultra-white-blue': 'rgba(203, 240, 255, 1)',
         'white-transparent': 'rgb(171,228,250)',
@@ -25,7 +26,7 @@ export default {
         grey1: '#EBF9FF',
         grey4: '#9EBECB',
         greytext: '#84A6B4',
-        grey5: '#EBF9FF'
+        grey5: '#EBF9FF',
       },
       textColor: {
         DEFAULT: '#32344F',

@@ -143,6 +143,10 @@ class Api {
       .data;
   }
 
+  public async createPortfolio(portfolio: IPortfolioDTO): Promise<void> {
+    return (await axiosInstance.post(`Portfolio`, portfolio)).data;
+  }
+
   public async postWorkExperience(
     workExperience: IPostWorkExperience,
   ): Promise<void> {

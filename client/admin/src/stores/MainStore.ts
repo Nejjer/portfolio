@@ -126,7 +126,22 @@ export class MainStore {
 
   public async submitPortfolio(portfolio: IPortfolioDTO): Promise<void> {
     this.isLoading = 'SubmitPortfolio';
-    await api.updatePortfolio(portfolio);
+    try {
+      await api.updatePortfolio(portfolio);
+    } catch (error) {
+      console.log(error);
+    }
+    this.setIsLoading('MainLoading');
+    this.setIsLoading('None');
+  }
+
+  public async createPortfolio(portfolio: IPortfolioDTO): Promise<void> {
+    this.isLoading = 'SubmitPortfolio';
+    try {
+      await api.createPortfolio(portfolio);
+    } catch (error) {
+      console.log(error);
+    }
     this.setIsLoading('MainLoading');
     this.setIsLoading('None');
   }

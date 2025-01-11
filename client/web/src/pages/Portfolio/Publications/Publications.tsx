@@ -1,6 +1,7 @@
 import { FC, useContext } from 'react';
 import { AppStoreContext, StoreCtx } from '../../../stores/WithStore.tsx';
 import { observer } from 'mobx-react';
+import { Pagination } from '../../../components/Pagination';
 
 interface IPublication {
   text: string;
@@ -20,15 +21,14 @@ const Publications: FC = () => {
   return (
     <section className={'mt-20'}>
       <h4 className={'mb-10 text-3xl font-bold'}>Публикации</h4>
-      <ul
-        className={
-          'grid h-[351px]  columns-1 gap-0.5 overflow-auto bg-ultra-white-blue'
-        }
-      >
-        {mainStore.publications.map(({ id, title }) => (
+      <Pagination
+        countPerPage={5}
+        items={mainStore.publications}
+        renderItem={({ id, title }) => (
           <PublicationItem key={id} text={title} />
-        ))}
-      </ul>
+        )}
+        className={'flex-[3] md:min-h-[351px]'}
+      />
     </section>
   );
 };

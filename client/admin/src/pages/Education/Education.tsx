@@ -59,7 +59,7 @@ const Education: FC = () => {
 
   useEffect(() => {
     mainStore.setActivePortfolio(parseInt(id!));
-    mainStore.updateEducation();
+    mainStore.updateEducations();
   }, []);
 
   if (!mainStore.getActivePortfolio()) {

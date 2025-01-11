@@ -1,5 +1,5 @@
 import { FC, useContext, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Form } from 'react-final-form';
 
 import { Button, Card } from '@gravity-ui/uikit';
@@ -34,16 +34,19 @@ const sections = [
 
 const Portfolio: FC = () => {
   const { id } = useParams();
-
+  const isNew = id === 'new';
+  const navigate = useNavigate();
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
   useEffect(() => {
-    mainStore.setActivePortfolio(parseInt(id!));
+    if (!isNew) {
+      mainStore.setActivePortfolio(parseInt(id!));
+    }
   }, []);
 
-  if (!mainStore.getActivePortfolio()) {
+  if (!mainStore.getActivePortfolio() && !isNew) {
     return;
   }
 
@@ -52,9 +55,14 @@ const Portfolio: FC = () => {
       <div>
         <h2 className={'mb-10 text-2xl'}>Общая информация</h2>
         <Form
-          onSubmit={(values: IPortfolioDTO) =>
-            mainStore.submitPortfolio(values)
-          }
+          onSubmit={async (values: IPortfolioDTO) => {
+            if (isNew) {
+              await mainStore.createPortfolio(values);
+              navigate('/');
+            } else {
+              mainStore.submitPortfolio(values);
+            }
+          }}
           initialValues={mainStore.getActivePortfolio()}
         >
           {(form) => (
@@ -72,18 +80,29 @@ const Portfolio: FC = () => {
                 className={'mt-10'}
                 loading={mainStore.isLoading === 'SubmitPortfolio'}
               >
-                Отправить
+                {isNew ? 'Создать' : 'Обновить'}
               </Button>
             </>
           )}
         </Form>
       </div>
-      <h2 className={'text-2xl'}>Другие разделы</h2>
-      <div className={'flex gap-10'}>
-        {sections.map((section) => (
-          <Item key={section.path} name={section.name} path={section.path} />
-        ))}
-      </div>
+      {!isNew && (
+        <>
+          <h2 className={'text-2xl'}>Другие разделы</h2>
+          <div className={'flex gap-10'}>
+            {sections.map((section) => (
+              <Item
+                key={section.path}
+                name={section.name}
+                path={section.path}
+              />
+            ))}
+          </div>
+          <Button onClick={() => window.open('/web-web/autoSave')}>
+            Экспортировать страницу как pdf
+          </Button>
+        </>
+      )}
     </div>
   );
 };
