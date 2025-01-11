@@ -20,7 +20,11 @@ const ConferenceItem: FC<{
   );
 };
 
-const ParticipationInConferences: FC = () => {
+interface Props {
+  hideNav?: boolean;
+}
+
+const ParticipationInConferences: FC<Props> = ({ hideNav }) => {
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
@@ -33,9 +37,11 @@ const ParticipationInConferences: FC = () => {
 
   return (
     <section className={'md:!px-[60px]'}>
-      <div className={'py-4'}>
-        <Navigation />
-      </div>
+      {!hideNav && (
+        <div className={'py-4'}>
+          <Navigation />
+        </div>
+      )}
       <h4 className={'mb-4 mt-8 text-3xl font-bold'}>Участие в конференциях</h4>
       <div className='flex h-[600px] flex-col-reverse gap-6 md:h-[300px] md:flex-row'>
         <div className='relative flex-[2] overflow-hidden'>
