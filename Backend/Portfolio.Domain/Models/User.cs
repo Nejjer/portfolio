@@ -20,4 +20,14 @@ public class User : BaseModel
     {
         Password = password;
     }
+    
+    public void AddPortfolio(long id)
+    {
+        PortfolioIds.Add(id);
+    }
+
+    public void RemovePortfolio(long portfolioId)
+    {
+        PortfolioIds.Remove(portfolioId);
+    }
 }

@@ -15,7 +15,7 @@ public class DeletePortfolioCommand : Command
     [FromRoute] public long Id { get; set; }
 }
 
-public sealed class DeletePortfolioCommandHandler(IPortfolioRepository portfolioRepository, IUserProvider userProvider)
+public sealed class DeletePortfolioCommandHandler(IUserRepository userRepository, IPortfolioRepository portfolioRepository, IUserProvider userProvider)
     : CommandHandler<DeletePortfolioCommand>
 {
     protected override async Task<IResult> CanHandle(DeletePortfolioCommand request, CancellationToken cancellationToken)
@@ -36,9 +36,15 @@ public sealed class DeletePortfolioCommandHandler(IPortfolioRepository portfolio
         {
             return Error(NotFoundError.Instance);
         }
-
+        var portfolioId = portfolio.Id;
         await portfolioRepository.RemoveAsync(portfolio);
         await portfolioRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+        
+        var email = userProvider.GetUserEmail();
+        var user = await userRepository.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+        user!.RemovePortfolio(portfolioId);
+        await portfolioRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+        
         return Successful();
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Web.Controllers;
 
-[Route("api/[controller]")]
+[Route("webclient/api/[controller]")]
 public class BaseController(IMediator mediator) : Controller
 {
     private CancellationToken CancellationToken => HttpContext.RequestAborted;

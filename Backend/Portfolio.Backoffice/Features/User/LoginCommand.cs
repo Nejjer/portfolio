@@ -4,6 +4,7 @@ using Ftsoft.Common.Result;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Backoffice.Auth;
 using Portfolio.Backoffice.Errors;
 using Portfolio.Backoffice.Models;
 using Portfolio.Backoffice.Services;
@@ -38,8 +39,9 @@ public sealed class LoginCommandHandler(
 
         var claims = new List<Claim>
         {
-            new(ClaimTypes.Name, request.Data.Email),
-            new(ClaimTypes.Role, "Manager")
+            new(CustomerCustomClaims.Email, request.Data.Email),
+            new(ClaimTypes.Role, "Manager"),
+            new(CustomerCustomClaims.Porfolios, string.Join(",", user.PortfolioIds))
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
