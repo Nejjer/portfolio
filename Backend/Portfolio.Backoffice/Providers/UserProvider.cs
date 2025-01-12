@@ -1,4 +1,5 @@
-﻿using Portfolio.Backoffice.Auth;
+﻿using System.Reflection.Metadata;
+using Portfolio.Backoffice.Auth;
 
 namespace Portfolio.Backoffice.Providers;
 
@@ -8,7 +9,7 @@ public class UserProvider(IHttpContextAccessor httpContextAccessor) : IUserProvi
     {
         var user = httpContextAccessor.HttpContext?.User;
         var portfoliosString = user?.FindFirst(CustomerCustomClaims.Porfolios)?.Value;
-        if (portfoliosString is null)
+        if (string.IsNullOrEmpty(portfoliosString))
         {
             return Array.Empty<long>();
         }

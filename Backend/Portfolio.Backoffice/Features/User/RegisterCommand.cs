@@ -23,7 +23,7 @@ public sealed class RegisterCommandHandler(ICryptService cryptService, IUserRepo
         }
         
         var hashedPassword = cryptService.HashPassword(request.Data.Password);
-        var user = new Domain.Models.User(request.Data.Email, hashedPassword);
+        var user = new Domain.Models.User(request.Data.Email, hashedPassword, []);
         await userRepository.AddAsync(user, cancellationToken);
         await userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         return Successful();

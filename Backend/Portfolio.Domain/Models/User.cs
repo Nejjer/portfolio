@@ -6,15 +6,15 @@ public class User : BaseModel
     {
     }
 
-    public User(string email, string password)
+    public User(string email, string password, List<long> portfolioIds)
     {
         Email = email;
         Password = password;
-        PortfolioIds = [];
+        PortfolioIds = portfolioIds;
     }
     public string Email { get; private set; }
     public string Password { get; private set; }
-    public List<long> PortfolioIds { get; private set; } = [];
+    public List<long> PortfolioIds { get; set; }
 
     public void Update(string password)
     {

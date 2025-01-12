@@ -1,0 +1,1725 @@
+2025-01-12 16:40:47.878 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 16:40:48.263 +05:00 [INF] Now listening on: https://localhost:7254
+2025-01-12 16:40:48.265 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 16:40:48.270 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 16:40:48.272 +05:00 [INF] Hosting environment: Development
+2025-01-12 16:40:48.272 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 16:40:57.750 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/ - null null
+2025-01-12 16:40:57.812 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/ - 307 0 null 63.0495ms
+2025-01-12 16:41:19.176 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 16:41:19.297 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 16:41:19.300 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 16:41:19.302 +05:00 [INF] Hosting environment: Development
+2025-01-12 16:41:19.302 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 16:41:19.465 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger - null null
+2025-01-12 16:41:19.519 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger - 301 0 null 54.9169ms
+2025-01-12 16:41:19.527 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 16:41:19.659 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 132.8238ms
+2025-01-12 16:41:19.700 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui.css - null null
+2025-01-12 16:41:19.700 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui-bundle.js - null null
+2025-01-12 16:41:19.704 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui-standalone-preset.js - null null
+2025-01-12 16:41:19.726 +05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-12 16:41:19.731 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui.css - 200 143943 text/css 31.2668ms
+2025-01-12 16:41:19.741 +05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-01-12 16:41:19.747 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 43.14ms
+2025-01-12 16:41:19.749 +05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-01-12 16:41:19.751 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 50.4214ms
+2025-01-12 16:41:19.860 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 16:41:19.966 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 106.1597ms
+2025-01-12 16:41:24.020 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 16:41:24.027 +05:00 [INF] CORS policy execution successful.
+2025-01-12 16:41:24.030 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 16:41:24.032 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:41:24.058 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 16:41:24.104 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 16:41:28.048 +05:00 [ERR] Failed executing DbCommand (83ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 16:41:28.106 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:41:28.322 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 4258.4976ms
+2025-01-12 16:41:28.323 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:41:28.325 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\User\RegisterCommand.cs:line 19
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 28
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\AuthController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:41:28.368 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 4348.4208ms
+2025-01-12 16:43:24.966 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 16:43:25.077 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 16:43:25.079 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 16:43:25.080 +05:00 [INF] Hosting environment: Development
+2025-01-12 16:43:25.081 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 16:43:25.254 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 16:43:25.410 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 156.9888ms
+2025-01-12 16:43:25.568 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 16:43:25.675 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.0518ms
+2025-01-12 16:43:27.036 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 16:43:27.044 +05:00 [INF] CORS policy execution successful.
+2025-01-12 16:43:27.046 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 16:43:27.048 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:43:27.068 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 16:43:27.111 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 16:43:49.465 +05:00 [ERR] Failed executing DbCommand (116ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 16:43:49.531 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:43:49.813 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 22737.8656ms
+2025-01-12 16:43:49.819 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:43:49.830 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\User\RegisterCommand.cs:line 19
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 28
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\AuthController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:43:49.896 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 22860.317ms
+2025-01-12 16:45:15.879 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 16:45:15.886 +05:00 [INF] CORS policy execution successful.
+2025-01-12 16:45:15.887 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:45:15.888 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 16:45:15.891 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 16:45:18.639 +05:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 16:45:18.648 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:45:50.504 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 34614.7864ms
+2025-01-12 16:45:50.505 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:45:50.506 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\User\RegisterCommand.cs:line 19
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 28
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\AuthController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:45:50.517 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 34639.7913ms
+2025-01-12 16:45:52.450 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 16:45:52.453 +05:00 [INF] CORS policy execution successful.
+2025-01-12 16:45:52.454 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:45:52.455 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 16:45:52.456 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 16:45:54.434 +05:00 [ERR] Failed executing DbCommand (35ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 16:45:54.436 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:47:40.186 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 107729.7763ms
+2025-01-12 16:47:40.187 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 16:47:40.188 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command)
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 16:47:40.199 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 107748.632ms
+2025-01-12 17:25:27.479 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:25:27.634 +05:00 [ERR] An exception occurred while trying to decrypt the element.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+2025-01-12 17:25:27.684 +05:00 [ERR] An exception occurred while processing the key element '<key id="f9556375-215a-4712-a553-147259d64432" version="1" />'.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+2025-01-12 17:25:27.692 +05:00 [WRN] Key {f9556375-215a-4712-a553-147259d64432} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.702 +05:00 [WRN] Key {f9556375-215a-4712-a553-147259d64432} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.726 +05:00 [ERR] An exception occurred while trying to decrypt the element.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+2025-01-12 17:25:27.728 +05:00 [ERR] An exception occurred while processing the key element '<key id="eaea8b0b-cd82-4978-8f82-62efbbf5ad20" version="1" />'.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+2025-01-12 17:25:27.731 +05:00 [WRN] Key {eaea8b0b-cd82-4978-8f82-62efbbf5ad20} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.760 +05:00 [ERR] An exception occurred while trying to decrypt the element.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+2025-01-12 17:25:27.766 +05:00 [ERR] An exception occurred while processing the key element '<key id="f6005ae8-793e-497b-8c60-06f994c29273" version="1" />'.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+2025-01-12 17:25:27.770 +05:00 [WRN] Key {f6005ae8-793e-497b-8c60-06f994c29273} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.798 +05:00 [ERR] An exception occurred while trying to decrypt the element.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+2025-01-12 17:25:27.800 +05:00 [ERR] An exception occurred while processing the key element '<key id="a629bc59-962a-489d-906b-b77bbde6f680" version="1" />'.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+2025-01-12 17:25:27.803 +05:00 [WRN] Key {a629bc59-962a-489d-906b-b77bbde6f680} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.808 +05:00 [WRN] Key {a629bc59-962a-489d-906b-b77bbde6f680} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.811 +05:00 [WRN] Key {f6005ae8-793e-497b-8c60-06f994c29273} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.814 +05:00 [WRN] Key {eaea8b0b-cd82-4978-8f82-62efbbf5ad20} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.817 +05:00 [WRN] Key {f9556375-215a-4712-a553-147259d64432} is ineligible to be the default key because its CreateEncryptor method failed.
+System.Security.Cryptography.CryptographicException: Error occurred during a cryptographic operation.
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapiCore(Byte* pbProtectedData, UInt32 cbProtectedData, Byte* pbOptionalEntropy, UInt32 cbOptionalEntropy)
+   at Microsoft.AspNetCore.DataProtection.Cng.DpapiSecretSerializerHelper.UnprotectWithDpapi(Byte[] protectedSecret)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor.Decrypt(XElement encryptedElement)
+   at Microsoft.AspNetCore.DataProtection.XmlEncryption.XmlEncryptionExtensions.DecryptElement(XElement element, IActivator activator)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager.Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager.DeserializeDescriptorFromKeyElement(XElement keyElement)
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngGcmAuthenticatedEncryptorFactory.CreateEncryptorInstance(IKey key)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyBase.CreateEncryptor()
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver.CanCreateAuthenticatedEncryptor(IKey key)
+2025-01-12 17:25:27.825 +05:00 [INF] Creating key {c94895de-beda-43ec-aba4-7280ab2209bf} with creation date 2025-01-12 12:25:27Z, activation date 2025-01-12 12:25:27Z, and expiration date 2025-04-12 12:25:27Z.
+2025-01-12 17:25:27.847 +05:00 [INF] Writing data to file 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys\key-c94895de-beda-43ec-aba4-7280ab2209bf.xml'.
+2025-01-12 17:25:28.007 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:25:28.012 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:25:28.013 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:25:28.014 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:25:28.240 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:25:28.432 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 193.489ms
+2025-01-12 17:25:32.617 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:25:32.799 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 182.3019ms
+2025-01-12 17:25:36.151 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:25:36.164 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:25:36.166 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:25:36.168 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:25:36.200 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:25:36.285 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:25:41.658 +05:00 [ERR] Failed executing DbCommand (142ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:25:41.696 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:26:31.030 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 54812.6309ms
+2025-01-12 17:26:31.035 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:26:31.044 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\User\RegisterCommand.cs:line 19
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 28
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\AuthController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:26:31.091 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 54939.429ms
+2025-01-12 17:30:52.973 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:30:53.095 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:30:53.098 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:30:53.099 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:30:53.100 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:30:53.551 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:30:53.728 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 177.8417ms
+2025-01-12 17:30:53.810 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:30:53.933 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 123.2611ms
+2025-01-12 17:30:56.433 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:30:56.442 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:30:56.443 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:30:56.445 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:30:56.465 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:30:56.512 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:30:59.974 +05:00 [ERR] Failed executing DbCommand (74ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:31:00.016 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:31:54.053 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:31:54.177 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:31:54.180 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:31:54.181 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:31:54.181 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:31:54.553 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:31:54.713 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 160.7848ms
+2025-01-12 17:31:54.806 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:31:54.923 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 117.5354ms
+2025-01-12 17:31:56.748 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:31:56.757 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:31:56.759 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:31:56.761 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:31:56.780 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:31:56.823 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:31:59.981 +05:00 [ERR] Failed executing DbCommand (71ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:32:00.017 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:34:05.926 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:34:06.076 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:34:06.079 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:34:06.080 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:34:06.080 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:34:06.623 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:34:06.775 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 153.4436ms
+2025-01-12 17:34:06.857 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:34:06.969 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 112.8486ms
+2025-01-12 17:34:15.778 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:34:15.787 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:34:15.789 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:34:15.790 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:34:15.810 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:34:15.850 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:34:19.392 +05:00 [ERR] Failed executing DbCommand (69ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:34:19.429 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:34:50.662 +05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+2025-01-12 17:34:50.665 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:35:20.728 +05:00 [ERR] Failed executing DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+2025-01-12 17:35:20.730 +05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:36:17.951 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 122136.2727ms
+2025-01-12 17:36:17.952 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:36:17.956 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column u.PortfolioIds does not exist
+
+POSITION: 41
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Ftsoft.Storage.EntityFramework.EFRepository`2.SingleOrDefaultAsync(Expression`1 predicate, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command)
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column u.PortfolioIds does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3718
+    Routine: errorMissingColumn
+2025-01-12 17:36:17.979 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 122201.7352ms
+2025-01-12 17:36:20.474 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:36:20.477 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:36:20.478 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:36:20.479 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:36:20.481 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:36:32.353 +05:00 [ERR] Failed executing DbCommand (60ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Password", "PortfolioIds")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-01-12 17:36:32.395 +05:00 [ERR] An exception occurred in the database while saving changes for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-01-12 17:36:33.546 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 13066.7969ms
+2025-01-12 17:36:33.547 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:36:33.548 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command)
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:36:33.557 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 13083.0667ms
+2025-01-12 17:36:44.014 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:36:44.016 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:36:44.016 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:36:44.017 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:36:44.019 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:36:44.809 +05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Password", "PortfolioIds")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-01-12 17:36:44.812 +05:00 [ERR] An exception occurred in the database while saving changes for context type 'Portfolio.Infrastructure.Storage.PortfolioDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-01-12 17:36:44.914 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 896.0733ms
+2025-01-12 17:36:44.915 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:36:44.916 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42703: column "PortfolioIds" of relation "Users" does not exist
+
+POSITION: 43
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "PortfolioIds" of relation "Users" does not exist
+    Position: 43
+    File: parse_target.c
+    Line: 1057
+    Routine: checkInsertTargets
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Features.User.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command)
+   at Portfolio.Backoffice.Controllers.AuthController.Register(RegisterCommand command)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:36:44.925 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 500 null text/plain; charset=utf-8 911.1252ms
+2025-01-12 17:37:17.787 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:37:17.918 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:37:17.921 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:37:17.922 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:37:17.923 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:37:18.195 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:37:18.350 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 155.8918ms
+2025-01-12 17:37:22.788 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 47
+2025-01-12 17:37:22.808 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:37:22.809 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:37:22.811 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:37:22.832 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:37:22.873 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:37:26.315 +05:00 [INF] Executed DbCommand (66ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:37:28.050 +05:00 [INF] Executed DbCommand (69ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Password", "PortfolioIds")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-01-12 17:37:28.124 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 5246.1383ms.
+2025-01-12 17:37:28.134 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:37:28.140 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 5302.929ms
+2025-01-12 17:37:28.142 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:37:28.155 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 200 0 null 5371.1374ms
+2025-01-12 17:37:38.029 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - application/json 69
+2025-01-12 17:37:38.033 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:37:38.034 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:37:38.036 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Portfolio.Backoffice.Features.User.LoginCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:37:38.043 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:37:39.424 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:37:39.625 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) in 1588.2557ms
+2025-01-12 17:37:39.626 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:37:39.627 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No sign-in authentication handler is registered for the scheme 'Cookies'. The registered sign-in schemes are: CookieAuth. Did you forget to call AddAuthentication().AddCookie("Cookies",...)?
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.SignInAsync(HttpContext context, String scheme, ClaimsPrincipal principal, AuthenticationProperties properties)
+   at Portfolio.Backoffice.Features.User.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute(Command command)
+   at Portfolio.Backoffice.Controllers.AuthController.Login(LoginCommand command)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:37:39.662 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - 500 null text/plain; charset=utf-8 1633.1321ms
+2025-01-12 17:38:14.441 +05:00 [INF] User profile is available. Using 'C:\Users\Admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-12 17:38:14.574 +05:00 [INF] Now listening on: http://localhost:5201
+2025-01-12 17:38:14.577 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-12 17:38:14.578 +05:00 [INF] Hosting environment: Development
+2025-01-12 17:38:14.578 +05:00 [INF] Content root path: D:\Projects\portfolio\Backend\Portfolio.Backoffice
+2025-01-12 17:38:14.864 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:38:15.030 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 166.0759ms
+2025-01-12 17:38:15.114 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:38:15.216 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 102.0955ms
+2025-01-12 17:38:17.750 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - application/json 69
+2025-01-12 17:38:17.759 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:38:17.760 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-01-12 17:38:17.763 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:38:17.782 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Portfolio.Backoffice.Features.User.LoginCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:38:17.825 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:38:22.396 +05:00 [INF] Executed DbCommand (68ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:38:22.638 +05:00 [INF] AuthenticationScheme: Cookies signed in.
+2025-01-12 17:38:22.644 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 4813.9654ms.
+2025-01-12 17:38:22.651 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:38:22.657 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) in 4869.9415ms
+2025-01-12 17:38:22.658 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:38:22.672 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - 200 0 null 4921.5126ms
+2025-01-12 17:38:38.666 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Portfolio - application/json 183
+2025-01-12 17:38:38.675 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:38:38.676 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.Create (Portfolio.Backoffice)'
+2025-01-12 17:38:38.679 +05:00 [INF] Route matched with {action = "Create", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Portfolio.Backoffice.Features.Portfolio.CreatePortfolioCommand) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:38:38.692 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.Create (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:38:38.852 +05:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Object), @p1='?' (DbType = Object), @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Portfolios" ("Contacts", "Credits", "Name", "ShortInfo", "Slogan")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2025-01-12 17:38:38.875 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 2
+2025-01-12 17:38:38.890 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int64), @p0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Users" SET "PortfolioIds" = @p0
+WHERE "Id" = @p1;
+2025-01-12 17:38:38.893 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.PortfolioController.Create (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 199.8835ms.
+2025-01-12 17:38:38.894 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:38:38.895 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.Create (Portfolio.Backoffice) in 214.5967ms
+2025-01-12 17:38:38.895 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.Create (Portfolio.Backoffice)'
+2025-01-12 17:38:38.896 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Portfolio - 200 0 null 229.6733ms
+2025-01-12 17:38:50.866 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:38:50.869 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:38:50.871 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:38:50.872 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:38:50.969 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 96.6132ms
+2025-01-12 17:38:50.969 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:38:50.971 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: The input string '' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int64.Parse(String s)
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Portfolio.Backoffice.Providers.UserProvider.GetAvailablePortfolios() in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Providers\UserProvider.cs:line 15
+   at Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQueryHandler.Handle(GetPortfoliosQuery request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\Portfolio\GetPortfoliosQuery.cs:line 21
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute[T](Query`1 query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 17
+   at Portfolio.Backoffice.Controllers.PortfolioController.GetMany(GetPortfoliosQuery query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\PortfolioController.cs:line 16
+   at lambda_method185(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:38:51.007 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 500 null text/plain; charset=utf-8 140.2539ms
+2025-01-12 17:39:07.043 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:39:07.045 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:39:07.046 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:39:07.047 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:39:35.997 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/index.html - null null
+2025-01-12 17:39:36.036 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 28989.6819ms
+2025-01-12 17:39:36.037 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/index.html - 200 null text/html;charset=utf-8 46.0893ms
+2025-01-12 17:39:36.037 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:39:36.040 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: The input string '' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int64.Parse(String s)
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Portfolio.Backoffice.Providers.UserProvider.GetAvailablePortfolios() in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Providers\UserProvider.cs:line 15
+   at Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQueryHandler.Handle(GetPortfoliosQuery request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\Portfolio\GetPortfoliosQuery.cs:line 21
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute[T](Query`1 query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 17
+   at Portfolio.Backoffice.Controllers.PortfolioController.GetMany(GetPortfoliosQuery query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\PortfolioController.cs:line 16
+   at lambda_method185(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:39:36.049 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 500 null text/plain; charset=utf-8 29005.8259ms
+2025-01-12 17:39:36.231 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - null null
+2025-01-12 17:39:36.239 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.5158ms
+2025-01-12 17:39:36.241 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/swagger/favicon-32x32.png - null null
+2025-01-12 17:39:36.255 +05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-12 17:39:36.255 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/swagger/favicon-32x32.png - 200 628 image/png 14.5557ms
+2025-01-12 17:39:40.296 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - application/json 69
+2025-01-12 17:39:40.298 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:39:40.298 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:39:40.299 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Portfolio.Backoffice.Features.User.LoginCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:39:40.300 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:39:42.743 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:39:48.220 +05:00 [INF] AuthenticationScheme: Cookies signed in.
+2025-01-12 17:39:51.254 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 10953.0993ms.
+2025-01-12 17:39:51.255 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:39:51.256 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) in 10956.2119ms
+2025-01-12 17:39:51.256 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:39:51.257 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - 200 0 null 10961.4509ms
+2025-01-12 17:39:55.193 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - application/json 69
+2025-01-12 17:39:55.196 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:39:55.197 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:39:55.197 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Portfolio.Backoffice.Features.User.LoginCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:39:55.199 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:39:56.792 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:40:07.442 +05:00 [INF] AuthenticationScheme: Cookies signed in.
+2025-01-12 17:40:07.445 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 12245.2012ms.
+2025-01-12 17:40:07.446 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:40:07.447 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) in 12247.9567ms
+2025-01-12 17:40:07.447 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:40:07.448 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - 200 0 null 12255.1071ms
+2025-01-12 17:40:20.752 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:40:20.761 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:40:20.763 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:40:20.768 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:40:50.816 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__availablePortfolios_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Credits", p."Name", p."ShortInfo", p."Slogan", p."Contacts"
+FROM "Portfolios" AS p
+WHERE p."Id" = ANY (@__availablePortfolios_0)
+2025-01-12 17:40:50.834 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 30065.0829ms.
+2025-01-12 17:40:50.837 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Portfolio.Backoffice.Models.PortfolioDto, Portfolio.Backoffice, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-12 17:40:50.847 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 30080.0138ms
+2025-01-12 17:40:50.848 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:40:50.849 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 200 null application/json; charset=utf-8 30096.8323ms
+2025-01-12 17:41:00.393 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - application/json 48
+2025-01-12 17:41:00.397 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:41:00.398 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:41:00.402 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Portfolio.Backoffice.Features.User.RegisterCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:41:00.406 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:41:01.179 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:41:01.292 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("Email", "Password", "PortfolioIds")
+VALUES (@p0, @p1, @p2)
+RETURNING "Id";
+2025-01-12 17:41:01.296 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 888.3028ms.
+2025-01-12 17:41:01.297 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:41:01.297 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice) in 893.9449ms
+2025-01-12 17:41:01.298 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Register (Portfolio.Backoffice)'
+2025-01-12 17:41:01.298 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/register - 200 0 null 905.5176ms
+2025-01-12 17:41:06.727 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - application/json 70
+2025-01-12 17:41:06.731 +05:00 [INF] CORS policy execution successful.
+2025-01-12 17:41:06.732 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:41:06.733 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Portfolio.Backoffice.Features.User.LoginCommand) on controller Portfolio.Backoffice.Controllers.AuthController (Portfolio.Backoffice).
+2025-01-12 17:41:06.734 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:41:07.547 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Data_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."Email", u."Password", u."PortfolioIds"
+FROM "Users" AS u
+WHERE u."Email" = @__request_Data_Email_0
+LIMIT 2
+2025-01-12 17:41:12.435 +05:00 [INF] AuthenticationScheme: Cookies signed in.
+2025-01-12 17:41:12.436 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkResult in 5700.8103ms.
+2025-01-12 17:41:12.437 +05:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2025-01-12 17:41:12.437 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice) in 5703.4126ms
+2025-01-12 17:41:12.438 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.AuthController.Login (Portfolio.Backoffice)'
+2025-01-12 17:41:12.439 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5201/backoffice/api/Auth/login - 200 0 null 5711.591ms
+2025-01-12 17:41:17.849 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:41:17.851 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:17.852 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:41:17.853 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:41:21.235 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 3381.8444ms
+2025-01-12 17:41:21.236 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:21.237 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: The input string '' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int64.Parse(String s)
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Portfolio.Backoffice.Providers.UserProvider.GetAvailablePortfolios() in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Providers\UserProvider.cs:line 15
+   at Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQueryHandler.Handle(GetPortfoliosQuery request, CancellationToken cancellationToken) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Features\Portfolio\GetPortfoliosQuery.cs:line 21
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute[T](Query`1 query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\BaseController.cs:line 17
+   at Portfolio.Backoffice.Controllers.PortfolioController.GetMany(GetPortfoliosQuery query) in D:\Projects\portfolio\Backend\Portfolio.Backoffice\Controllers\PortfolioController.cs:line 16
+   at lambda_method185(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:41:21.241 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 500 null text/plain; charset=utf-8 3391.9883ms
+2025-01-12 17:41:26.095 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:41:26.098 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:26.099 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:41:26.100 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:41:38.603 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 12503.6596ms
+2025-01-12 17:41:38.604 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:38.605 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.FormatException: The input string '' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int64.Parse(String s)
+   at System.Linq.Enumerable.SelectArrayIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Portfolio.Backoffice.Providers.UserProvider.GetAvailablePortfolios()
+   at Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQueryHandler.Handle(GetPortfoliosQuery request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.CoreHandle(T request, CancellationToken cancellationToken)
+   at Ftsoft.Application.Cqs.Mediatr.HandlerBase`2.MediatR.IRequestHandler<T,TResult>.Handle(T request, CancellationToken cancellationToken)
+   at Portfolio.Backoffice.Controllers.BaseController.Execute[T](Query`1 query)
+   at Portfolio.Backoffice.Controllers.PortfolioController.GetMany(GetPortfoliosQuery query)
+   at lambda_method185(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-12 17:41:38.610 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 500 null text/plain; charset=utf-8 12514.8412ms
+2025-01-12 17:41:40.233 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - null null
+2025-01-12 17:41:40.235 +05:00 [INF] Executing endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:40.235 +05:00 [INF] Route matched with {action = "GetMany", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[Portfolio.Backoffice.Models.PortfolioDto]]] GetMany(Portfolio.Backoffice.Features.Portfolio.GetPortfoliosQuery) on controller Portfolio.Backoffice.Controllers.PortfolioController (Portfolio.Backoffice).
+2025-01-12 17:41:40.237 +05:00 [INF] Executing action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) - Validation state: "Valid"
+2025-01-12 17:41:41.616 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__availablePortfolios_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."Credits", p."Name", p."ShortInfo", p."Slogan", p."Contacts"
+FROM "Portfolios" AS p
+WHERE p."Id" = ANY (@__availablePortfolios_0)
+2025-01-12 17:41:41.622 +05:00 [INF] Executed action method Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1384.5621ms.
+2025-01-12 17:41:41.623 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Portfolio.Backoffice.Models.PortfolioDto, Portfolio.Backoffice, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-12 17:41:41.624 +05:00 [INF] Executed action Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice) in 1387.555ms
+2025-01-12 17:41:41.625 +05:00 [INF] Executed endpoint 'Portfolio.Backoffice.Controllers.PortfolioController.GetMany (Portfolio.Backoffice)'
+2025-01-12 17:41:41.626 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5201/backoffice/api/Portfolio - 200 null application/json; charset=utf-8 1392.6709ms

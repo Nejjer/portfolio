@@ -2,3 +2,7 @@
 *\obj
 Backend/**/obj
 Backend/**/bin
+**/obj
+**/bin
+Backend/Portfolio.Domain/bin
+bin

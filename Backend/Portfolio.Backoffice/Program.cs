@@ -28,10 +28,10 @@ builder.Host.UseSerilog();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddAuthentication("CookieAuth")
-    .AddCookie("CookieAuth", options =>
+builder.Services.AddAuthentication("Cookies")
+    .AddCookie("Cookies", options =>
     {
-        options.Cookie.Name = "CookieAuth"; 
+        options.Cookie.Name = "Cookies"; 
         options.ExpireTimeSpan = TimeSpan.FromDays(1);
         
         options.Events = new CookieAuthenticationEvents
