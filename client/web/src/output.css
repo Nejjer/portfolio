@@ -802,10 +802,6 @@ html {
   height: 300px;
 }
 
-.h-\[351px\] {
-  height: 351px;
-}
-
 .h-\[560px\] {
   height: 560px;
 }
@@ -820,10 +816,6 @@ html {
 
 .h-full {
   height: 100%;
-}
-
-.h-8 {
-  height: 2rem;
 }
 
 .w-0\.5 {
@@ -983,10 +975,6 @@ html {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.overflow-auto {
-  overflow: auto;
 }
 
 .overflow-hidden {
@@ -1200,10 +1188,6 @@ html {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-semibold {
-  font-weight: 600;
 }
 
 .text {

@@ -7,8 +7,12 @@ export default defineConfig({
   plugins: [react(), vitePluginSvgr()],
   server: {
     proxy: {
-      '/api/': {
+      '/webclient/api/': {
         target: 'http://5.141.235.46:7198',
+        changeOrigin: true,
+      },
+      'http://localhost:5128/api': {
+        target: 'http://5.141.235.46:7198/webclient/',
         changeOrigin: true,
       },
     },

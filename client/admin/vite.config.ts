@@ -10,6 +10,10 @@ export default defineConfig({
         target: 'http://5.141.235.46:5000',
         changeOrigin: true,
       },
+      'http://localhost:5128': {
+        target: 'http://5.141.235.46:5000',
+        changeOrigin: true,
+      },
     },
   },
 });
