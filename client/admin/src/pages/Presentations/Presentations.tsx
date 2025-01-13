@@ -128,21 +128,32 @@ const Presentations: FC = () => {
             <>
               <Dialog.Header caption='Caption' />
               <Dialog.Body>
-                <input
-                  type={'file'}
-                  accept='.pdf,.pptx,.ppt,.key'
-                  onChange={handleFileChange}
-                  className='mb-10'
-                />
-                {imageUrl && (
-                  <img src={imageUrl} className={'max-h-20'} alt={'Картинка'} />
-                )}
-                <input
-                  type={'file'}
-                  accept={'image/*'}
-                  onChange={handleImageChange}
-                  className='mb-10'
-                />
+                <div>
+                  <p>Файл презентации</p>
+                  <input
+                    type={'file'}
+                    accept='.pdf,.pptx,.ppt'
+                    onChange={handleFileChange}
+                    className='mb-10'
+                  />
+                </div>
+                <div>
+                  {imageUrl && (
+                    <img
+                      src={imageUrl}
+                      className={'max-h-20'}
+                      alt={'Картинка'}
+                    />
+                  )}
+                  <p>Обложка презентации</p>
+                  <input
+                    type={'file'}
+                    accept={'image/*'}
+                    onChange={handleImageChange}
+                    className='mb-10'
+                  />
+                </div>
+
                 {specs.map((spec) => (
                   <DynamicField
                     key={spec.name}
@@ -157,6 +168,9 @@ const Presentations: FC = () => {
                 onClickButtonApply={form.handleSubmit}
                 textButtonApply={editableId ? 'Изменить' : 'Добавить'}
                 textButtonCancel='Отменить'
+                propsButtonApply={{
+                  disabled: !form.valid || !form.dirty || !fileUrl || !imageUrl,
+                }}
                 children={
                   <div>
                     {editableId && (

@@ -18,13 +18,13 @@ const Portfolio: FC = () => {
       <div className={'mb-2.5 flex items-center gap-2 md:mb-11 md:gap-10'}>
         <h2 className={'text-lg font-bold md:text-5xl'}>Портфолио</h2>
         <Button
-          onClick={() => navigation('aboutme')}
+          onClick={() => navigation('portfolio')}
           className={'hidden md:flex'}
         >
           Подробнее
         </Button>
         <Button
-          onClick={() => navigation('aboutme')}
+          onClick={() => navigation('portfolio')}
           minimized
           className={'flex md:hidden'}
         ></Button>

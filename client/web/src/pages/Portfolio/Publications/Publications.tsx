@@ -18,6 +18,10 @@ const Publications: FC = () => {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
+  if (mainStore.publications.length === 0) {
+    return null;
+  }
+
   return (
     <section className={'mt-20'}>
       <h4 className={'mb-10 text-3xl font-bold'}>Публикации</h4>
