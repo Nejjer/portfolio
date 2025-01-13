@@ -13,6 +13,7 @@ export const specs: IMySpec[] = [
       layoutTitle: 'Название',
       placeholder: 'Название конференции',
     },
+    required: true,
     name: 'name',
   },
   {
@@ -23,6 +24,7 @@ export const specs: IMySpec[] = [
       layoutTitle: 'Дата проведения',
       placeholder: 'Дата проведения',
     },
+    required: true,
     name: 'date',
   },
 ];
