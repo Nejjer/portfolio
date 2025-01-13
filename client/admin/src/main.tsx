@@ -1,7 +1,11 @@
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ThemeProvider } from '@gravity-ui/uikit';
+import {
+  ThemeProvider,
+  ToasterComponent,
+  ToasterProvider,
+} from '@gravity-ui/uikit';
 import '@gravity-ui/uikit/styles/fonts.css';
 import '@gravity-ui/uikit/styles/styles.css';
 import './output.css';
@@ -12,13 +16,16 @@ import { Registration } from './pages/Registration';
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter basename={'/web-admin'}>
     <WithStore>
-      <ThemeProvider theme='dark'>
-        <Routes>
-          <Route path='/auth' element={<Auth />} />
-          <Route path='/register' element={<Registration />} />
-          <Route path={'/*'} element={<App />} />
-        </Routes>
-      </ThemeProvider>
+      <ToasterProvider>
+        <ThemeProvider theme='dark'>
+          <Routes>
+            <Route path='/auth' element={<Auth />} />
+            <Route path='/register' element={<Registration />} />
+            <Route path={'/*'} element={<App />} />
+          </Routes>
+          <ToasterComponent />
+        </ThemeProvider>
+      </ToasterProvider>
     </WithStore>
   </BrowserRouter>,
 );

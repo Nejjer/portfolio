@@ -680,6 +680,10 @@ video {
   gap: 5rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .bg-g-color-base-float {
   background-color: var(--g-color-base-float);
 }
