@@ -818,6 +818,10 @@ html {
   height: 100%;
 }
 
+.min-h-\[600px\] {
+  min-height: 600px;
+}
+
 .w-0\.5 {
   width: 0.125rem;
 }
