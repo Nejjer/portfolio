@@ -16,14 +16,16 @@ public class GetPortfolioQuery : Query<PortfolioDto>
 
 public sealed class GetPortfolioQueryHandler(
     IUserProvider userProvider,
-    IPortfolioRepository portfolioRepository
+    IPortfolioRepository portfolioRepository,
+    IUserRepository userRepository
 )
     : QueryHandler<GetPortfolioQuery, PortfolioDto>
 {
     protected override async Task<IResult> CanHandle(GetPortfolioQuery request, CancellationToken cancellationToken)
     {
-        var availablePortfolios = userProvider.GetAvailablePortfolios();
-        if (!availablePortfolios.Contains(request.Id))
+        var email = userProvider.GetUserEmail();
+        var user = await userRepository.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+        if (!user.PortfolioIds.Contains(request.Id))
         {
             return Error(NotFoundError.Instance);
         }

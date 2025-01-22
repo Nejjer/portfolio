@@ -16,13 +16,14 @@ public class UpdatePortfolioCommand : Command
     [FromBody] public PortfolioDto Data { get; set; }
 }
 
-public sealed class UpdatePortfolioCommandHandler(IPortfolioRepository portfolioRepository, IUserProvider userProvider)
+public sealed class UpdatePortfolioCommandHandler(IUserRepository userRepository, IPortfolioRepository portfolioRepository, IUserProvider userProvider)
     : CommandHandler<UpdatePortfolioCommand>
 {
     protected override async Task<IResult> CanHandle(UpdatePortfolioCommand request, CancellationToken cancellationToken)
     {
-        var availablePortfolios = userProvider.GetAvailablePortfolios();
-        if (!availablePortfolios.Contains(request.Id))
+        var email = userProvider.GetUserEmail();
+        var user = await userRepository.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+        if (!user.PortfolioIds.Contains(request.Id))
         {
             return Error(NotFoundError.Instance);
         }

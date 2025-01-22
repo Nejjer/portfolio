@@ -12,14 +12,15 @@ public class GetPortfoliosQuery : Query<IReadOnlyList<PortfolioDto>>
 {
 }
 
-public sealed class GetPortfoliosQueryHandler(IUserProvider userProvider, IPortfolioRepository portfolioRepository)
+public sealed class GetPortfoliosQueryHandler(IUserRepository userRepository, IUserProvider userProvider, IPortfolioRepository portfolioRepository)
     : QueryHandler<GetPortfoliosQuery, IReadOnlyList<PortfolioDto>>
 {
     public override async Task<Result<IReadOnlyList<PortfolioDto>>> Handle(GetPortfoliosQuery request,
         CancellationToken cancellationToken)
     {
-        var availablePortfolios = userProvider.GetAvailablePortfolios();
-        var portfolio = await portfolioRepository.ListAsync(x => availablePortfolios.Contains(x.Id), cancellationToken);
+        var email = userProvider.GetUserEmail();
+        var user = await userRepository.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+        var portfolio = await portfolioRepository.ListAsync(x => user.PortfolioIds.Contains(x.Id), cancellationToken);
         var result = portfolio.Select(p => new PortfolioDto()
         {
             Id = p.Id,

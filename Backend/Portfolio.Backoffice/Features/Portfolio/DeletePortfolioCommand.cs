@@ -20,8 +20,9 @@ public sealed class DeletePortfolioCommandHandler(IUserRepository userRepository
 {
     protected override async Task<IResult> CanHandle(DeletePortfolioCommand request, CancellationToken cancellationToken)
     {
-        var availablePortfolios = userProvider.GetAvailablePortfolios();
-        if (!availablePortfolios.Contains(request.Id))
+        var email = userProvider.GetUserEmail();
+        var user = await userRepository.SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
+        if (!user.PortfolioIds.Contains(request.Id))
         {
             return Error(NotFoundError.Instance);
         }
