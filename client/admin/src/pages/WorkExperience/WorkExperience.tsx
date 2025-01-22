@@ -9,6 +9,7 @@ import {
   Card,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
+  useToaster,
 } from '@gravity-ui/uikit';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs.ts';
 
@@ -39,6 +40,7 @@ const WorkExperience: FC = () => {
   const breadcrumbs = useBreadcrumbs([
     { text: 'Опыт работы', action: () => null },
   ]);
+  const { add } = useToaster();
   const { id } = useParams();
   const [visibleDialog, setVisibleDialog] = useState(false);
   const [initialValues, setInitialValues] = useState({
@@ -97,6 +99,18 @@ const WorkExperience: FC = () => {
           title: 'Опыт работы',
         }}
         onAdd={async (form) => {
+          if (
+            Object.keys(form.getState().values).filter(
+              // @ts-ignore
+              (key) => form.getState().values[key],
+            ).length > 0
+          ) {
+            add({
+              title: 'Заполните все поля',
+              name: 'validate1',
+            });
+            return Promise.reject();
+          }
           if (editableId) {
             await mainStore.putWorkExperience({
               ...form.getState().values,

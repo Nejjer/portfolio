@@ -17,6 +17,10 @@ const Education: FC = () => {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
+  if (mainStore.educations.length === 0) {
+    return null;
+  }
+
   return (
     <section className={'mb-28'}>
       <h4 className={'mb-6 text-3xl font-bold'}>Образование</h4>

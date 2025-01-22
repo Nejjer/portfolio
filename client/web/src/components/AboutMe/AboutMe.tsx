@@ -17,11 +17,13 @@ const AboutMe: FC = () => {
         <h2 className={'text-lg font-bold md:text-5xl'}>
           {mainStore.portfolio?.name}
         </h2>
-        <p className={'text-xs md:mt-4 md:text-2xl'}>
-          {mainStore.portfolio?.shortInfo}
+        <p className={'text-xs md:mt-4 md:text-xl'}>
+          {mainStore.portfolio?.credits.join(', ')}
         </p>
 
-        <div className={'mt-4 h-full bg-grey5 p-2 text-2xl text-greytext'}>{mainStore.portfolio?.shortInfo}</div>
+        <div className={'mt-4 h-full bg-grey5 p-2 text-greytext md:text-2xl'}>
+          {mainStore.portfolio?.shortInfo}
+        </div>
       </div>
     </section>
   );

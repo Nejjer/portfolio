@@ -6,7 +6,7 @@ const VerticalLineWithCircle: FC<{ year: number }> = ({ year }) => {
   return (
     <div className='relative flex w-full items-center justify-center'>
       <div className='absolute h-full w-0.5 bg-dark-blue'></div>
-      <div className='bg-ultra-white-blue absolute h-10 w-10 rounded-3xl border-2 border-dark-blue'></div>
+      <div className='absolute h-10 w-10 rounded-3xl border-2 border-dark-blue bg-ultra-white-blue'></div>
       <div className='relative mt-20 bg-white font-bold md:mr-24 md:mt-0'>
         {year}
       </div>
@@ -28,10 +28,14 @@ const WorkExperience: FC = () => {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
 
+  if (mainStore.workExps.length === 0) {
+    return null;
+  }
+
   return (
     <section>
       <h4 className={'mb-10 text-3xl font-bold'}>Опыт работы</h4>
-      <div className={'grid-cols-work-exp-mobile md:grid-cols-work-exp grid'}>
+      <div className={'grid grid-cols-work-exp-mobile md:grid-cols-work-exp'}>
         {mainStore.workExps
           .slice()
           .sort((a, b) => (a.startDate < b.startDate ? -1 : 1))

@@ -818,6 +818,10 @@ html {
   height: 100%;
 }
 
+.min-h-\[600px\] {
+  min-height: 600px;
+}
+
 .w-0\.5 {
   width: 0.125rem;
 }
@@ -1350,5 +1354,10 @@ html {
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }

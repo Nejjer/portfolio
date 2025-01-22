@@ -8,6 +8,7 @@ import {
   Button,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
+  useToaster,
 } from '@gravity-ui/uikit';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs.ts';
 import { Item } from '../WorkExperience';
@@ -31,6 +32,7 @@ const Educations: FC = () => {
   const [visibleDialog, setVisibleDialog] = useState(false);
   const [initialValues, setInitialValues] = useState(defaultVal);
   const [editableId, setEditableId] = useState<number | null>(null);
+  const { add } = useToaster();
   const {
     appStore: { mainStore },
   } = useContext<AppStoreContext>(StoreCtx);
@@ -52,7 +54,7 @@ const Educations: FC = () => {
         firstDisplayedItemsCount={FirstDisplayedItemsCount.One}
         lastDisplayedItemsCount={LastDisplayedItemsCount.One}
       />
-      <h2 className={'mb-10 mt-10 text-2xl'}>Опыт работы</h2>
+      <h2 className={'mb-10 mt-10 text-2xl'}>Образование</h2>
       <DFDialog<IEducation>
         visible={visibleDialog}
         footerProps={{
@@ -62,7 +64,7 @@ const Educations: FC = () => {
           textApply: editableId ? 'Изменить' : 'Добавить',
           textCancel: 'Отменить',
           content: (
-            <div>
+            <div className={'flex flex-col gap-2'}>
               {editableId && (
                 <Button
                   loading={mainStore.isLoading === 'SubmitEducation'}
@@ -82,6 +84,27 @@ const Educations: FC = () => {
           title: 'Образование',
         }}
         onAdd={async (form) => {
+          if (
+            Object.keys(form.getState().values).filter(
+              // @ts-ignore
+              (key) => form.getState().values[key],
+            ).length > 0
+          ) {
+            add({
+              title: 'Заполните все поля',
+              name: 'validate1',
+            });
+            return Promise.reject();
+          }
+          if (
+            form.getState().values.startYear > form.getState().values.endYear
+          ) {
+            add({
+              title: 'Год начала должен быть меньше года окончания',
+              name: 'validate',
+            });
+            return Promise.reject();
+          }
           if (editableId) {
             await mainStore.putEducation({
               ...form.getState().values,
@@ -95,6 +118,18 @@ const Educations: FC = () => {
             });
           }
           setVisibleDialog(false);
+        }}
+        validate={(values) => {
+          const generalErrs: Partial<
+            Record<keyof typeof values, string | undefined>
+          > = {};
+
+          if (values.startYear <= values.endYear) {
+            generalErrs.startYear =
+              'Год начала должен быть меньше года окончания';
+          } else {
+            return undefined;
+          }
         }}
         initialValues={initialValues}
         onClose={() => setVisibleDialog(false)}
