@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
+      '/backoffice/api': {
         target: 'http://localhost:5201',
         changeOrigin: true,
       },
