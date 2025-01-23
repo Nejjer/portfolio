@@ -125,9 +125,6 @@ const Conferences: FC = () => {
                 onClickButtonApply={form.handleSubmit}
                 textButtonApply={editableId ? 'Изменить' : 'Добавить'}
                 textButtonCancel='Отменить'
-                propsButtonApply={{
-                  disabled: !form.valid || !form.dirty || !fileUrl,
-                }}
                 children={
                   <div>
                     {editableId && (

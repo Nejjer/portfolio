@@ -8,7 +8,6 @@ import {
   Button,
   FirstDisplayedItemsCount,
   LastDisplayedItemsCount,
-  useToaster,
 } from '@gravity-ui/uikit';
 import { useBreadcrumbs } from '../../hooks/useBreadcrumbs.ts';
 import { Item } from '../WorkExperience';
@@ -27,7 +26,6 @@ const Publications: FC = () => {
   const breadcrumbs = useBreadcrumbs([
     { text: 'Публикации', action: () => null },
   ]);
-  const { add } = useToaster();
   const { id } = useParams();
   const [visibleDialog, setVisibleDialog] = useState(false);
   const [initialValues, setInitialValues] =
@@ -84,18 +82,6 @@ const Publications: FC = () => {
           title: 'Публикация',
         }}
         onAdd={async (form) => {
-          if (
-            Object.keys(form.getState().values).filter(
-              // @ts-ignore
-              (key) => form.getState().values[key],
-            ).length > 0
-          ) {
-            add({
-              title: 'Заполните все поля',
-              name: 'validate1',
-            });
-            return Promise.reject();
-          }
           if (editableId) {
             await mainStore.putPublication({
               ...form.getState().values,

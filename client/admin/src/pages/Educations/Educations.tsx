@@ -85,18 +85,6 @@ const Educations: FC = () => {
         }}
         onAdd={async (form) => {
           if (
-            Object.keys(form.getState().values).filter(
-              // @ts-ignore
-              (key) => form.getState().values[key],
-            ).length > 0
-          ) {
-            add({
-              title: 'Заполните все поля',
-              name: 'validate1',
-            });
-            return Promise.reject();
-          }
-          if (
             form.getState().values.startYear > form.getState().values.endYear
           ) {
             add({
