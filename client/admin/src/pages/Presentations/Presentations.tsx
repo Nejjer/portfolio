@@ -168,9 +168,6 @@ const Presentations: FC = () => {
                 onClickButtonApply={form.handleSubmit}
                 textButtonApply={editableId ? 'Изменить' : 'Добавить'}
                 textButtonCancel='Отменить'
-                propsButtonApply={{
-                  disabled: !form.valid || !form.dirty || !fileUrl || !imageUrl,
-                }}
                 children={
                   <div>
                     {editableId && (
