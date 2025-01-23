@@ -98,7 +98,11 @@ const Portfolio: FC = () => {
               />
             ))}
           </div>
-          <Button onClick={() => window.open('/web-web/autoSave')}>
+          <Button
+            onClick={() =>
+              window.open('http://localhost:5174/web-web/autoSave')
+            }
+          >
             Экспортировать страницу как pdf
           </Button>
         </>
